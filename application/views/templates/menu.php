@@ -5,6 +5,6 @@
       <li><a href="<?php echo base_url('fangsheng') ?>">放生管理</a></li>
       <li><a href="<?php echo base_url('gonggao') ?>">公告管理</a></li>
       <li><a href="<?php echo base_url('yigong') ?>">其他</a></li>
-
+      <li><a href="<?php echo base_url('login/logout') ?>">注销</a></li>
     </ul>
 </div>

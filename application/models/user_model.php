@@ -14,12 +14,24 @@ class user_model extends CI_Model
 		# code...
 	}
 
-	public function check_User_api($username,$passwd)
-	{
-		$query = $this->db->get_where('hhs_user', array('username' => $username,
-														'password' => $passwd));
-	//	echo  $this->db->last_query();
-		return $query->result_array();
-	}
+ 	public function login($username, $password)
+ 	{
+		$this->db->select('id, username, password');
+		$this->db->from('hhs_users');
+		$this->db->where('username', $username);
+		$this->db->where('password', MD5($password));
+		$this->db->limit(1);
+		$query = $this->db->get();
+		echo  $this->db->last_query();
+		echo $query->num_rows();
+		if($query->num_rows() == 1)
+		{
+			return $query->result();
+		}
+		else
+		{
+			return false;
+		}
+ 	}
 }
 ?>
