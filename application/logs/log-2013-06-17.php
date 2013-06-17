@@ -67,3 +67,56 @@ DEBUG - 2013-06-17 13:10:41 --> UTF-8 Support Enabled
 DEBUG - 2013-06-17 13:10:41 --> URI Class Initialized
 DEBUG - 2013-06-17 13:10:41 --> Router Class Initialized
 ERROR - 2013-06-17 13:10:41 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 15:03:42 --> Config Class Initialized
+DEBUG - 2013-06-17 15:03:42 --> Hooks Class Initialized
+DEBUG - 2013-06-17 15:03:42 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 15:03:42 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 15:03:42 --> URI Class Initialized
+DEBUG - 2013-06-17 15:03:42 --> Router Class Initialized
+DEBUG - 2013-06-17 15:03:42 --> Output Class Initialized
+DEBUG - 2013-06-17 15:03:42 --> Security Class Initialized
+DEBUG - 2013-06-17 15:03:42 --> Input Class Initialized
+DEBUG - 2013-06-17 15:03:42 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 15:03:42 --> Language Class Initialized
+DEBUG - 2013-06-17 15:03:42 --> Loader Class Initialized
+DEBUG - 2013-06-17 15:03:42 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 15:03:42 --> Controller Class Initialized
+DEBUG - 2013-06-17 15:03:42 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 15:03:42 --> File loaded: application/views/login_view.php
+DEBUG - 2013-06-17 15:03:42 --> Final output sent to browser
+DEBUG - 2013-06-17 15:03:42 --> Total execution time: 0.0891
+DEBUG - 2013-06-17 15:03:42 --> Config Class Initialized
+DEBUG - 2013-06-17 15:03:42 --> Hooks Class Initialized
+DEBUG - 2013-06-17 15:03:42 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 15:03:42 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 15:03:42 --> URI Class Initialized
+DEBUG - 2013-06-17 15:03:42 --> Router Class Initialized
+ERROR - 2013-06-17 15:03:42 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 15:03:44 --> Config Class Initialized
+DEBUG - 2013-06-17 15:03:44 --> Hooks Class Initialized
+DEBUG - 2013-06-17 15:03:44 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 15:03:44 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 15:03:44 --> URI Class Initialized
+DEBUG - 2013-06-17 15:03:44 --> Router Class Initialized
+DEBUG - 2013-06-17 15:03:44 --> Output Class Initialized
+DEBUG - 2013-06-17 15:03:44 --> Security Class Initialized
+DEBUG - 2013-06-17 15:03:44 --> Input Class Initialized
+DEBUG - 2013-06-17 15:03:44 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 15:03:44 --> Language Class Initialized
+DEBUG - 2013-06-17 15:03:44 --> Loader Class Initialized
+DEBUG - 2013-06-17 15:03:44 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 15:03:44 --> Controller Class Initialized
+DEBUG - 2013-06-17 15:03:45 --> Config Class Initialized
+DEBUG - 2013-06-17 15:03:45 --> Hooks Class Initialized
+DEBUG - 2013-06-17 15:03:45 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 15:03:45 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 15:03:45 --> URI Class Initialized
+DEBUG - 2013-06-17 15:03:45 --> Router Class Initialized
+ERROR - 2013-06-17 15:03:45 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 15:03:47 --> Config Class Initialized
+DEBUG - 2013-06-17 15:03:47 --> Hooks Class Initialized
+DEBUG - 2013-06-17 15:03:47 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 15:03:47 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 15:03:47 --> URI Class Initialized
+DEBUG - 2013-06-17 15:03:47 --> Router Class Initialized
+ERROR - 2013-06-17 15:03:47 --> 404 Page Not Found --> favicon.ico
