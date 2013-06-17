@@ -22946,3 +22946,870 @@ DEBUG - 2013-06-17 17:02:02 --> UTF-8 Support Enabled
 DEBUG - 2013-06-17 17:02:02 --> URI Class Initialized
 DEBUG - 2013-06-17 17:02:02 --> Router Class Initialized
 ERROR - 2013-06-17 17:02:02 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:35:36 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:36 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:36 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:36 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:36 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:36 --> Router Class Initialized
+DEBUG - 2013-06-17 21:35:36 --> No URI present. Default controller set.
+DEBUG - 2013-06-17 21:35:36 --> Output Class Initialized
+DEBUG - 2013-06-17 21:35:36 --> Security Class Initialized
+DEBUG - 2013-06-17 21:35:36 --> Input Class Initialized
+DEBUG - 2013-06-17 21:35:36 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 21:35:36 --> Language Class Initialized
+DEBUG - 2013-06-17 21:35:36 --> Loader Class Initialized
+DEBUG - 2013-06-17 21:35:36 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 21:35:36 --> Session Class Initialized
+DEBUG - 2013-06-17 21:35:36 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 21:35:36 --> A session cookie was not found.
+DEBUG - 2013-06-17 21:35:36 --> Session routines successfully run
+DEBUG - 2013-06-17 21:35:36 --> Controller Class Initialized
+DEBUG - 2013-06-17 21:35:36 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 21:35:36 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 21:35:36 --> Model Class Initialized
+DEBUG - 2013-06-17 21:35:36 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 21:35:36 --> Helper loaded: text_helper
+DEBUG - 2013-06-17 21:35:36 --> File loaded: application/views/templates/head.php
+DEBUG - 2013-06-17 21:35:36 --> File loaded: application/views/templates/menu.php
+DEBUG - 2013-06-17 21:35:36 --> File loaded: application/views/templates/left.php
+DEBUG - 2013-06-17 21:35:36 --> File loaded: application/views/news/index.php
+DEBUG - 2013-06-17 21:35:36 --> File loaded: application/views/templates/footer.php
+DEBUG - 2013-06-17 21:35:36 --> Final output sent to browser
+DEBUG - 2013-06-17 21:35:36 --> Total execution time: 0.0645
+DEBUG - 2013-06-17 21:35:37 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:37 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:37 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:37 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:37 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:37 --> Router Class Initialized
+ERROR - 2013-06-17 21:35:37 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:35:38 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:38 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Router Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Output Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Security Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Input Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 21:35:38 --> Language Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Loader Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Session Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 21:35:38 --> Session routines successfully run
+DEBUG - 2013-06-17 21:35:38 --> Controller Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Model Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Model Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 21:35:38 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 21:35:38 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:38 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:38 --> Router Class Initialized
+ERROR - 2013-06-17 21:35:38 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:35:40 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:40 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:40 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:40 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:40 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:40 --> Router Class Initialized
+ERROR - 2013-06-17 21:35:40 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:35:43 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:43 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> Router Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> Output Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> Security Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> Input Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 21:35:43 --> Language Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> Loader Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> Session Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 21:35:43 --> Session routines successfully run
+DEBUG - 2013-06-17 21:35:43 --> Controller Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 21:35:43 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> Model Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 21:35:43 --> Helper loaded: text_helper
+DEBUG - 2013-06-17 21:35:43 --> File loaded: application/views/templates/head.php
+DEBUG - 2013-06-17 21:35:43 --> File loaded: application/views/templates/menu.php
+DEBUG - 2013-06-17 21:35:43 --> File loaded: application/views/templates/left.php
+DEBUG - 2013-06-17 21:35:43 --> File loaded: application/views/news/index.php
+DEBUG - 2013-06-17 21:35:43 --> File loaded: application/views/templates/footer.php
+DEBUG - 2013-06-17 21:35:43 --> Final output sent to browser
+DEBUG - 2013-06-17 21:35:43 --> Total execution time: 0.0337
+DEBUG - 2013-06-17 21:35:43 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:43 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:43 --> Router Class Initialized
+ERROR - 2013-06-17 21:35:43 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:35:44 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:44 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> Router Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> Output Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> Security Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> Input Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 21:35:44 --> Language Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> Loader Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> Session Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 21:35:44 --> Session routines successfully run
+DEBUG - 2013-06-17 21:35:44 --> Controller Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 21:35:44 --> Model Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 21:35:44 --> File loaded: application/views/templates/head.php
+DEBUG - 2013-06-17 21:35:44 --> File loaded: application/views/templates/menu.php
+DEBUG - 2013-06-17 21:35:44 --> File loaded: application/views/templates/left.php
+DEBUG - 2013-06-17 21:35:44 --> File loaded: application/views/news_type/index.php
+DEBUG - 2013-06-17 21:35:44 --> File loaded: application/views/templates/footer.php
+DEBUG - 2013-06-17 21:35:44 --> Final output sent to browser
+DEBUG - 2013-06-17 21:35:44 --> Total execution time: 0.0260
+DEBUG - 2013-06-17 21:35:44 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:44 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:44 --> Router Class Initialized
+ERROR - 2013-06-17 21:35:44 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:35:45 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:45 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> Router Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> Output Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> Security Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> Input Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 21:35:45 --> Language Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> Loader Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> Session Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 21:35:45 --> Session routines successfully run
+DEBUG - 2013-06-17 21:35:45 --> Controller Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 21:35:45 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> Model Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 21:35:45 --> Helper loaded: text_helper
+DEBUG - 2013-06-17 21:35:45 --> File loaded: application/views/templates/head.php
+DEBUG - 2013-06-17 21:35:45 --> File loaded: application/views/templates/menu.php
+DEBUG - 2013-06-17 21:35:45 --> File loaded: application/views/templates/left.php
+DEBUG - 2013-06-17 21:35:45 --> File loaded: application/views/news/index.php
+DEBUG - 2013-06-17 21:35:45 --> File loaded: application/views/templates/footer.php
+DEBUG - 2013-06-17 21:35:45 --> Final output sent to browser
+DEBUG - 2013-06-17 21:35:45 --> Total execution time: 0.0311
+DEBUG - 2013-06-17 21:35:45 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:45 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:45 --> Router Class Initialized
+ERROR - 2013-06-17 21:35:45 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:35:46 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:46 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Router Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Output Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Security Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Input Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 21:35:46 --> Language Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Loader Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Session Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 21:35:46 --> Session routines successfully run
+DEBUG - 2013-06-17 21:35:46 --> Controller Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Model Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Model Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 21:35:46 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 21:35:46 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:46 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:46 --> Router Class Initialized
+ERROR - 2013-06-17 21:35:46 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:35:48 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:48 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Router Class Initialized
+ERROR - 2013-06-17 21:35:48 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:35:48 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:48 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Router Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Output Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Security Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Input Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 21:35:48 --> Language Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Loader Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Session Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 21:35:48 --> Session routines successfully run
+DEBUG - 2013-06-17 21:35:48 --> Controller Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 21:35:48 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 21:35:48 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Model Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Model Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> File loaded: application/views/templates/head.php
+DEBUG - 2013-06-17 21:35:48 --> File loaded: application/views/templates/menu.php
+DEBUG - 2013-06-17 21:35:48 --> File loaded: application/views/templates/left.php
+DEBUG - 2013-06-17 21:35:48 --> File loaded: application/views/fangsheng/index.php
+DEBUG - 2013-06-17 21:35:48 --> File loaded: application/views/templates/footer.php
+DEBUG - 2013-06-17 21:35:48 --> Final output sent to browser
+DEBUG - 2013-06-17 21:35:48 --> Total execution time: 0.0356
+DEBUG - 2013-06-17 21:35:48 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:48 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:48 --> Router Class Initialized
+ERROR - 2013-06-17 21:35:48 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:35:49 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:49 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:49 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:49 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:49 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:49 --> Router Class Initialized
+DEBUG - 2013-06-17 21:35:49 --> Output Class Initialized
+DEBUG - 2013-06-17 21:35:49 --> Security Class Initialized
+DEBUG - 2013-06-17 21:35:49 --> Input Class Initialized
+DEBUG - 2013-06-17 21:35:49 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 21:35:49 --> Language Class Initialized
+DEBUG - 2013-06-17 21:35:49 --> Loader Class Initialized
+DEBUG - 2013-06-17 21:35:49 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 21:35:49 --> Session Class Initialized
+DEBUG - 2013-06-17 21:35:49 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 21:35:49 --> Session routines successfully run
+DEBUG - 2013-06-17 21:35:49 --> Controller Class Initialized
+DEBUG - 2013-06-17 21:35:49 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 21:35:49 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 21:35:49 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 21:35:49 --> Model Class Initialized
+DEBUG - 2013-06-17 21:35:49 --> Model Class Initialized
+DEBUG - 2013-06-17 21:35:49 --> File loaded: application/views/templates/head.php
+DEBUG - 2013-06-17 21:35:49 --> File loaded: application/views/templates/menu.php
+DEBUG - 2013-06-17 21:35:49 --> File loaded: application/views/templates/left.php
+DEBUG - 2013-06-17 21:35:49 --> File loaded: application/views/gonggao/index.php
+DEBUG - 2013-06-17 21:35:49 --> File loaded: application/views/templates/footer.php
+DEBUG - 2013-06-17 21:35:49 --> Final output sent to browser
+DEBUG - 2013-06-17 21:35:49 --> Total execution time: 0.0287
+DEBUG - 2013-06-17 21:35:50 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:50 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> Router Class Initialized
+ERROR - 2013-06-17 21:35:50 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:35:50 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:50 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> Router Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> Output Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> Security Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> Input Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 21:35:50 --> Language Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> Loader Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> Session Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 21:35:50 --> Session routines successfully run
+DEBUG - 2013-06-17 21:35:50 --> Controller Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 21:35:50 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 21:35:50 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> Model Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> Model Class Initialized
+DEBUG - 2013-06-17 21:35:50 --> File loaded: application/views/templates/head.php
+DEBUG - 2013-06-17 21:35:50 --> File loaded: application/views/templates/menu.php
+DEBUG - 2013-06-17 21:35:50 --> File loaded: application/views/templates/left.php
+DEBUG - 2013-06-17 21:35:50 --> File loaded: application/views/yigong/index.php
+DEBUG - 2013-06-17 21:35:50 --> File loaded: application/views/templates/footer.php
+DEBUG - 2013-06-17 21:35:50 --> Final output sent to browser
+DEBUG - 2013-06-17 21:35:50 --> Total execution time: 0.0297
+DEBUG - 2013-06-17 21:35:51 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:51 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:51 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:51 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:51 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:51 --> Router Class Initialized
+ERROR - 2013-06-17 21:35:51 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:35:52 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:52 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:52 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:52 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:52 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:52 --> Router Class Initialized
+DEBUG - 2013-06-17 21:35:52 --> Output Class Initialized
+DEBUG - 2013-06-17 21:35:52 --> Security Class Initialized
+DEBUG - 2013-06-17 21:35:52 --> Input Class Initialized
+DEBUG - 2013-06-17 21:35:52 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 21:35:52 --> Language Class Initialized
+DEBUG - 2013-06-17 21:35:52 --> Loader Class Initialized
+DEBUG - 2013-06-17 21:35:52 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 21:35:52 --> Session Class Initialized
+DEBUG - 2013-06-17 21:35:52 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 21:35:52 --> Session routines successfully run
+DEBUG - 2013-06-17 21:35:52 --> Controller Class Initialized
+DEBUG - 2013-06-17 21:35:52 --> Model Class Initialized
+DEBUG - 2013-06-17 21:35:52 --> Model Class Initialized
+DEBUG - 2013-06-17 21:35:52 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 21:35:52 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 21:35:52 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 21:35:53 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:53 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:53 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:53 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:53 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:53 --> Router Class Initialized
+ERROR - 2013-06-17 21:35:53 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:35:54 --> Config Class Initialized
+DEBUG - 2013-06-17 21:35:54 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:35:54 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:35:54 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:35:54 --> URI Class Initialized
+DEBUG - 2013-06-17 21:35:54 --> Router Class Initialized
+ERROR - 2013-06-17 21:35:54 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:36:46 --> Config Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:36:46 --> URI Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Router Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Output Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Security Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Input Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 21:36:46 --> Language Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Loader Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Session Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 21:36:46 --> Session routines successfully run
+DEBUG - 2013-06-17 21:36:46 --> Controller Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Model Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Model Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 21:36:46 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 21:36:46 --> Config Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:36:46 --> URI Class Initialized
+DEBUG - 2013-06-17 21:36:46 --> Router Class Initialized
+ERROR - 2013-06-17 21:36:46 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:37:11 --> Config Class Initialized
+DEBUG - 2013-06-17 21:37:11 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:37:11 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:37:11 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:37:11 --> URI Class Initialized
+DEBUG - 2013-06-17 21:37:11 --> Router Class Initialized
+DEBUG - 2013-06-17 21:37:11 --> Output Class Initialized
+DEBUG - 2013-06-17 21:37:11 --> Security Class Initialized
+DEBUG - 2013-06-17 21:37:11 --> Input Class Initialized
+DEBUG - 2013-06-17 21:37:11 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 21:37:11 --> Language Class Initialized
+DEBUG - 2013-06-17 21:37:11 --> Loader Class Initialized
+DEBUG - 2013-06-17 21:37:11 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 21:37:11 --> Session Class Initialized
+DEBUG - 2013-06-17 21:37:11 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 21:37:11 --> Session routines successfully run
+DEBUG - 2013-06-17 21:37:11 --> Controller Class Initialized
+DEBUG - 2013-06-17 21:37:11 --> Model Class Initialized
+DEBUG - 2013-06-17 21:37:11 --> Model Class Initialized
+DEBUG - 2013-06-17 21:37:11 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 21:37:11 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 21:37:11 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 21:37:12 --> Config Class Initialized
+DEBUG - 2013-06-17 21:37:12 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:37:12 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:37:12 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:37:12 --> URI Class Initialized
+DEBUG - 2013-06-17 21:37:12 --> Router Class Initialized
+ERROR - 2013-06-17 21:37:12 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:37:25 --> Config Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:37:25 --> URI Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Router Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Output Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Security Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Input Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 21:37:25 --> Language Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Loader Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Session Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 21:37:25 --> Session routines successfully run
+DEBUG - 2013-06-17 21:37:25 --> Controller Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Model Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Model Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 21:37:25 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 21:37:25 --> File loaded: application/views/templates/head.php
+DEBUG - 2013-06-17 21:37:25 --> File loaded: application/views/templates/menu.php
+DEBUG - 2013-06-17 21:37:25 --> File loaded: application/views/templates/left.php
+DEBUG - 2013-06-17 21:37:25 --> File loaded: application/views/fabao/index.php
+DEBUG - 2013-06-17 21:37:25 --> File loaded: application/views/templates/footer.php
+DEBUG - 2013-06-17 21:37:25 --> Final output sent to browser
+DEBUG - 2013-06-17 21:37:25 --> Total execution time: 0.0420
+DEBUG - 2013-06-17 21:37:25 --> Config Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:37:25 --> URI Class Initialized
+DEBUG - 2013-06-17 21:37:25 --> Router Class Initialized
+ERROR - 2013-06-17 21:37:25 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:37:27 --> Config Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:37:27 --> URI Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Router Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Output Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Security Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Input Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 21:37:27 --> Language Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Loader Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Session Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 21:37:27 --> Session routines successfully run
+DEBUG - 2013-06-17 21:37:27 --> Controller Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Model Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Model Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 21:37:27 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 21:37:27 --> File loaded: application/views/templates/head.php
+DEBUG - 2013-06-17 21:37:27 --> File loaded: application/views/templates/menu.php
+DEBUG - 2013-06-17 21:37:27 --> File loaded: application/views/templates/left.php
+DEBUG - 2013-06-17 21:37:27 --> File loaded: application/views/fabao/index.php
+DEBUG - 2013-06-17 21:37:27 --> File loaded: application/views/templates/footer.php
+DEBUG - 2013-06-17 21:37:27 --> Final output sent to browser
+DEBUG - 2013-06-17 21:37:27 --> Total execution time: 0.0326
+DEBUG - 2013-06-17 21:37:27 --> Config Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:37:27 --> URI Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Router Class Initialized
+ERROR - 2013-06-17 21:37:27 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:37:27 --> Config Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:37:27 --> URI Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Router Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Output Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Security Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Input Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 21:37:27 --> Language Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Loader Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Session Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 21:37:27 --> Session routines successfully run
+DEBUG - 2013-06-17 21:37:27 --> Controller Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 21:37:27 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 21:37:27 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Model Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Model Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> File loaded: application/views/templates/head.php
+DEBUG - 2013-06-17 21:37:27 --> File loaded: application/views/templates/menu.php
+DEBUG - 2013-06-17 21:37:27 --> File loaded: application/views/templates/left.php
+DEBUG - 2013-06-17 21:37:27 --> File loaded: application/views/fangsheng/index.php
+DEBUG - 2013-06-17 21:37:27 --> File loaded: application/views/templates/footer.php
+DEBUG - 2013-06-17 21:37:27 --> Final output sent to browser
+DEBUG - 2013-06-17 21:37:27 --> Total execution time: 0.0333
+DEBUG - 2013-06-17 21:37:27 --> Config Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:37:27 --> URI Class Initialized
+DEBUG - 2013-06-17 21:37:27 --> Router Class Initialized
+ERROR - 2013-06-17 21:37:27 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:37:28 --> Config Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:37:28 --> URI Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> Router Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> Output Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> Security Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> Input Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 21:37:28 --> Language Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> Loader Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> Session Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 21:37:28 --> Session routines successfully run
+DEBUG - 2013-06-17 21:37:28 --> Controller Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 21:37:28 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 21:37:28 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> Model Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> Model Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> File loaded: application/views/templates/head.php
+DEBUG - 2013-06-17 21:37:28 --> File loaded: application/views/templates/menu.php
+DEBUG - 2013-06-17 21:37:28 --> File loaded: application/views/templates/left.php
+DEBUG - 2013-06-17 21:37:28 --> File loaded: application/views/gonggao/index.php
+DEBUG - 2013-06-17 21:37:28 --> File loaded: application/views/templates/footer.php
+DEBUG - 2013-06-17 21:37:28 --> Final output sent to browser
+DEBUG - 2013-06-17 21:37:28 --> Total execution time: 0.0271
+DEBUG - 2013-06-17 21:37:28 --> Config Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:37:28 --> URI Class Initialized
+DEBUG - 2013-06-17 21:37:28 --> Router Class Initialized
+ERROR - 2013-06-17 21:37:28 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:37:29 --> Config Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:37:29 --> URI Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> Router Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> Output Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> Security Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> Input Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 21:37:29 --> Language Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> Loader Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> Session Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 21:37:29 --> Session routines successfully run
+DEBUG - 2013-06-17 21:37:29 --> Controller Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 21:37:29 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 21:37:29 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> Model Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> Model Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> File loaded: application/views/templates/head.php
+DEBUG - 2013-06-17 21:37:29 --> File loaded: application/views/templates/menu.php
+DEBUG - 2013-06-17 21:37:29 --> File loaded: application/views/templates/left.php
+DEBUG - 2013-06-17 21:37:29 --> File loaded: application/views/yigong/index.php
+DEBUG - 2013-06-17 21:37:29 --> File loaded: application/views/templates/footer.php
+DEBUG - 2013-06-17 21:37:29 --> Final output sent to browser
+DEBUG - 2013-06-17 21:37:29 --> Total execution time: 0.0279
+DEBUG - 2013-06-17 21:37:29 --> Config Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:37:29 --> URI Class Initialized
+DEBUG - 2013-06-17 21:37:29 --> Router Class Initialized
+ERROR - 2013-06-17 21:37:29 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 21:59:43 --> Config Class Initialized
+DEBUG - 2013-06-17 21:59:43 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:59:43 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:59:43 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:59:43 --> URI Class Initialized
+DEBUG - 2013-06-17 21:59:43 --> Router Class Initialized
+ERROR - 2013-06-17 21:59:43 --> 404 Page Not Found --> t
+DEBUG - 2013-06-17 21:59:45 --> Config Class Initialized
+DEBUG - 2013-06-17 21:59:45 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:59:45 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:59:45 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:59:45 --> URI Class Initialized
+DEBUG - 2013-06-17 21:59:45 --> Router Class Initialized
+ERROR - 2013-06-17 21:59:45 --> 404 Page Not Found --> t
+DEBUG - 2013-06-17 21:59:50 --> Config Class Initialized
+DEBUG - 2013-06-17 21:59:50 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:59:50 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:59:50 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:59:50 --> URI Class Initialized
+DEBUG - 2013-06-17 21:59:50 --> Router Class Initialized
+ERROR - 2013-06-17 21:59:50 --> 404 Page Not Found --> t
+DEBUG - 2013-06-17 21:59:52 --> Config Class Initialized
+DEBUG - 2013-06-17 21:59:52 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:59:52 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:59:52 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:59:52 --> URI Class Initialized
+DEBUG - 2013-06-17 21:59:52 --> Router Class Initialized
+ERROR - 2013-06-17 21:59:52 --> 404 Page Not Found --> t
+DEBUG - 2013-06-17 21:59:58 --> Config Class Initialized
+DEBUG - 2013-06-17 21:59:58 --> Hooks Class Initialized
+DEBUG - 2013-06-17 21:59:58 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 21:59:58 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 21:59:58 --> URI Class Initialized
+DEBUG - 2013-06-17 21:59:58 --> Router Class Initialized
+ERROR - 2013-06-17 21:59:58 --> 404 Page Not Found --> t
+DEBUG - 2013-06-17 22:00:03 --> Config Class Initialized
+DEBUG - 2013-06-17 22:00:03 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:00:03 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:00:03 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:00:03 --> URI Class Initialized
+DEBUG - 2013-06-17 22:00:03 --> Router Class Initialized
+ERROR - 2013-06-17 22:00:03 --> 404 Page Not Found --> t
+DEBUG - 2013-06-17 22:00:04 --> Config Class Initialized
+DEBUG - 2013-06-17 22:00:04 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:00:04 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:00:04 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:00:04 --> URI Class Initialized
+DEBUG - 2013-06-17 22:00:04 --> Router Class Initialized
+ERROR - 2013-06-17 22:00:04 --> 404 Page Not Found --> t
+DEBUG - 2013-06-17 22:09:23 --> Config Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:09:23 --> URI Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> Router Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> Output Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> Security Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> Input Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 22:09:23 --> Language Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> Loader Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> Session Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 22:09:23 --> Session routines successfully run
+DEBUG - 2013-06-17 22:09:23 --> Controller Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 22:09:23 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 22:09:23 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> Model Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> Model Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> File loaded: application/views/templates/head.php
+DEBUG - 2013-06-17 22:09:23 --> File loaded: application/views/templates/menu.php
+DEBUG - 2013-06-17 22:09:23 --> File loaded: application/views/templates/left.php
+DEBUG - 2013-06-17 22:09:23 --> File loaded: application/views/yigong/index.php
+DEBUG - 2013-06-17 22:09:23 --> File loaded: application/views/templates/footer.php
+DEBUG - 2013-06-17 22:09:23 --> Final output sent to browser
+DEBUG - 2013-06-17 22:09:23 --> Total execution time: 0.0353
+DEBUG - 2013-06-17 22:09:23 --> Config Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:09:23 --> URI Class Initialized
+DEBUG - 2013-06-17 22:09:23 --> Router Class Initialized
+ERROR - 2013-06-17 22:09:23 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 22:09:24 --> Config Class Initialized
+DEBUG - 2013-06-17 22:09:24 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:09:24 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:09:24 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:09:24 --> URI Class Initialized
+DEBUG - 2013-06-17 22:09:24 --> Router Class Initialized
+DEBUG - 2013-06-17 22:09:24 --> Output Class Initialized
+DEBUG - 2013-06-17 22:09:24 --> Security Class Initialized
+DEBUG - 2013-06-17 22:09:24 --> Input Class Initialized
+DEBUG - 2013-06-17 22:09:24 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 22:09:24 --> Language Class Initialized
+DEBUG - 2013-06-17 22:09:24 --> Loader Class Initialized
+DEBUG - 2013-06-17 22:09:24 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 22:09:24 --> Session Class Initialized
+DEBUG - 2013-06-17 22:09:24 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 22:09:24 --> Session routines successfully run
+DEBUG - 2013-06-17 22:09:24 --> Controller Class Initialized
+DEBUG - 2013-06-17 22:09:24 --> Final output sent to browser
+DEBUG - 2013-06-17 22:09:24 --> Total execution time: 0.0197
+DEBUG - 2013-06-17 22:09:24 --> Config Class Initialized
+DEBUG - 2013-06-17 22:09:24 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:09:24 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:09:24 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:09:24 --> URI Class Initialized
+DEBUG - 2013-06-17 22:09:24 --> Router Class Initialized
+ERROR - 2013-06-17 22:09:24 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 22:09:26 --> Config Class Initialized
+DEBUG - 2013-06-17 22:09:26 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:09:26 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:09:26 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:09:26 --> URI Class Initialized
+DEBUG - 2013-06-17 22:09:26 --> Router Class Initialized
+ERROR - 2013-06-17 22:09:26 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 22:12:20 --> Config Class Initialized
+DEBUG - 2013-06-17 22:12:20 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:12:20 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:12:20 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:12:20 --> URI Class Initialized
+DEBUG - 2013-06-17 22:12:20 --> Router Class Initialized
+DEBUG - 2013-06-17 22:12:20 --> Output Class Initialized
+DEBUG - 2013-06-17 22:12:20 --> Security Class Initialized
+DEBUG - 2013-06-17 22:12:20 --> Input Class Initialized
+DEBUG - 2013-06-17 22:12:20 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 22:12:20 --> Language Class Initialized
+DEBUG - 2013-06-17 22:12:20 --> Loader Class Initialized
+DEBUG - 2013-06-17 22:12:20 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 22:12:20 --> Session Class Initialized
+DEBUG - 2013-06-17 22:12:20 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 22:12:20 --> Session routines successfully run
+DEBUG - 2013-06-17 22:12:20 --> Controller Class Initialized
+DEBUG - 2013-06-17 22:12:20 --> Final output sent to browser
+DEBUG - 2013-06-17 22:12:20 --> Total execution time: 0.0185
+DEBUG - 2013-06-17 22:12:20 --> Config Class Initialized
+DEBUG - 2013-06-17 22:12:20 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:12:20 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:12:20 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:12:20 --> URI Class Initialized
+DEBUG - 2013-06-17 22:12:20 --> Router Class Initialized
+ERROR - 2013-06-17 22:12:20 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 22:12:22 --> Config Class Initialized
+DEBUG - 2013-06-17 22:12:22 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:12:22 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:12:22 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:12:22 --> URI Class Initialized
+DEBUG - 2013-06-17 22:12:22 --> Router Class Initialized
+ERROR - 2013-06-17 22:12:22 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 22:13:46 --> Config Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:13:46 --> URI Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Router Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Output Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Security Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Input Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 22:13:46 --> Language Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Loader Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Session Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 22:13:46 --> Session routines successfully run
+DEBUG - 2013-06-17 22:13:46 --> Controller Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Model Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Model Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Helper loaded: form_helper
+DEBUG - 2013-06-17 22:13:46 --> Form Validation Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Helper loaded: url_helper
+DEBUG - 2013-06-17 22:13:46 --> File loaded: application/views/templates/head.php
+DEBUG - 2013-06-17 22:13:46 --> File loaded: application/views/templates/menu.php
+DEBUG - 2013-06-17 22:13:46 --> File loaded: application/views/templates/left.php
+DEBUG - 2013-06-17 22:13:46 --> File loaded: application/views/fabao/index.php
+DEBUG - 2013-06-17 22:13:46 --> File loaded: application/views/templates/footer.php
+DEBUG - 2013-06-17 22:13:46 --> Final output sent to browser
+DEBUG - 2013-06-17 22:13:46 --> Total execution time: 0.0352
+DEBUG - 2013-06-17 22:13:46 --> Config Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:13:46 --> URI Class Initialized
+DEBUG - 2013-06-17 22:13:46 --> Router Class Initialized
+ERROR - 2013-06-17 22:13:46 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 22:22:27 --> Config Class Initialized
+DEBUG - 2013-06-17 22:22:27 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:22:27 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:22:27 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:22:27 --> URI Class Initialized
+DEBUG - 2013-06-17 22:22:27 --> Router Class Initialized
+DEBUG - 2013-06-17 22:22:27 --> Output Class Initialized
+DEBUG - 2013-06-17 22:22:27 --> Security Class Initialized
+DEBUG - 2013-06-17 22:22:27 --> Input Class Initialized
+DEBUG - 2013-06-17 22:22:27 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 22:22:27 --> Language Class Initialized
+DEBUG - 2013-06-17 22:22:27 --> Loader Class Initialized
+DEBUG - 2013-06-17 22:22:27 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 22:22:27 --> Session Class Initialized
+DEBUG - 2013-06-17 22:22:27 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 22:22:27 --> Session routines successfully run
+DEBUG - 2013-06-17 22:22:27 --> Controller Class Initialized
+DEBUG - 2013-06-17 22:22:27 --> Config file loaded: application/config/rest.php
+DEBUG - 2013-06-17 22:22:27 --> Helper loaded: inflector_helper
+DEBUG - 2013-06-17 22:22:27 --> Config Class Initialized
+DEBUG - 2013-06-17 22:22:27 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:22:27 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:22:27 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:22:27 --> URI Class Initialized
+DEBUG - 2013-06-17 22:22:27 --> Router Class Initialized
+ERROR - 2013-06-17 22:22:27 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 22:22:51 --> Config Class Initialized
+DEBUG - 2013-06-17 22:22:51 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:22:51 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:22:51 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:22:51 --> URI Class Initialized
+DEBUG - 2013-06-17 22:22:51 --> Router Class Initialized
+DEBUG - 2013-06-17 22:22:51 --> Output Class Initialized
+DEBUG - 2013-06-17 22:22:51 --> Security Class Initialized
+DEBUG - 2013-06-17 22:22:51 --> Input Class Initialized
+DEBUG - 2013-06-17 22:22:51 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 22:22:51 --> Language Class Initialized
+DEBUG - 2013-06-17 22:22:51 --> Loader Class Initialized
+DEBUG - 2013-06-17 22:22:51 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 22:22:51 --> Session Class Initialized
+DEBUG - 2013-06-17 22:22:51 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 22:22:51 --> Session routines successfully run
+DEBUG - 2013-06-17 22:22:51 --> Controller Class Initialized
+DEBUG - 2013-06-17 22:22:51 --> Config file loaded: application/config/rest.php
+DEBUG - 2013-06-17 22:22:51 --> Helper loaded: inflector_helper
+DEBUG - 2013-06-17 22:22:51 --> Final output sent to browser
+DEBUG - 2013-06-17 22:22:51 --> Total execution time: 0.0233
+DEBUG - 2013-06-17 22:22:51 --> Config Class Initialized
+DEBUG - 2013-06-17 22:22:51 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:22:51 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:22:51 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:22:51 --> URI Class Initialized
+DEBUG - 2013-06-17 22:22:51 --> Router Class Initialized
+ERROR - 2013-06-17 22:22:51 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-06-17 22:23:01 --> Config Class Initialized
+DEBUG - 2013-06-17 22:23:01 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:23:01 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:23:01 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:23:01 --> URI Class Initialized
+DEBUG - 2013-06-17 22:23:01 --> Router Class Initialized
+DEBUG - 2013-06-17 22:23:01 --> Output Class Initialized
+DEBUG - 2013-06-17 22:23:01 --> Security Class Initialized
+DEBUG - 2013-06-17 22:23:01 --> Input Class Initialized
+DEBUG - 2013-06-17 22:23:01 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-06-17 22:23:01 --> Language Class Initialized
+DEBUG - 2013-06-17 22:23:01 --> Loader Class Initialized
+DEBUG - 2013-06-17 22:23:01 --> Database Driver Class Initialized
+DEBUG - 2013-06-17 22:23:01 --> Session Class Initialized
+DEBUG - 2013-06-17 22:23:01 --> Helper loaded: string_helper
+DEBUG - 2013-06-17 22:23:01 --> Session routines successfully run
+DEBUG - 2013-06-17 22:23:01 --> Controller Class Initialized
+DEBUG - 2013-06-17 22:23:01 --> Config file loaded: application/config/rest.php
+DEBUG - 2013-06-17 22:23:01 --> Helper loaded: inflector_helper
+DEBUG - 2013-06-17 22:23:01 --> Final output sent to browser
+DEBUG - 2013-06-17 22:23:01 --> Total execution time: 0.0287
+DEBUG - 2013-06-17 22:23:01 --> Config Class Initialized
+DEBUG - 2013-06-17 22:23:01 --> Hooks Class Initialized
+DEBUG - 2013-06-17 22:23:01 --> Utf8 Class Initialized
+DEBUG - 2013-06-17 22:23:01 --> UTF-8 Support Enabled
+DEBUG - 2013-06-17 22:23:01 --> URI Class Initialized
+DEBUG - 2013-06-17 22:23:01 --> Router Class Initialized
+ERROR - 2013-06-17 22:23:01 --> 404 Page Not Found --> favicon.ico

@@ -16,7 +16,7 @@ class Fabao extends CI_Controller {
 							"<li><a href=\"".base_url('fabao/index')."\">法宝详情</a></li>",
 							"<li><a href=\"".base_url('fabao/order')."\">法宝订单</a></li>",
 							"<li><a href=\"".base_url('fabao/yunfei')."\">法宝运费须知</a></li>" );
-		$this->load->model('Model File');
+		//$this->load->model('Model File');
 	}
 	public function index()
 	{
