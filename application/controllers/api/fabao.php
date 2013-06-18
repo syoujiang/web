@@ -289,27 +289,14 @@ class fabao extends REST_Controller
         }
         $this->output->enable_profiler(TRUE);
         $content=$this->fabao_model->get_one_order($this->get('id'));
-        var_dump($content);
+    //    var_dump($content);
         $content_count = count($content);
         for ($i=0; $i <$content_count ; $i++) { 
             # code...
             // echo $content[$i]['fabao_id'];
             $content[$i]['fabao_id']=$this->fabao_model->getFbName($content[$i]['fabao_id']);
         }
-        var_dump($content);
-        // foreach ($content as $value) {
-        //     # code...
-        //     foreach ($value as $key=>$age) {    
-        //         if($key == "fabao_id"){
-        //             foreach ($fabao_name as $key => $value) {
-        //                 # code...
-        //             }
-        //             echo $age;
-        //             echo $fabao_name['$age'];
-        //         }
-        //     }
-        // }
-
+     //   var_dump($content);
         if($content)
         {
             $this->response($content, 200); // 200 being the HTTP response code
