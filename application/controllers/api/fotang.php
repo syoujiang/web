@@ -17,19 +17,23 @@ class Fotang extends REST_Controller {
 	public function month_get()
 	{
 		$username = $this->input->server('PHP_AUTH_USER');
-        # code...
-        $message = array('gongke_type' =>'念佛',
-        				 'numer' =>$this->fotang_model->get_month_api($username,'念佛'));
-        
+        # (念佛，诵经，持咒，吃素)
+        $type = array('念佛','诵经','持咒','吃素');
+		for ($i=0; $i <4 ; $i++) { 
+			$message[$i]['gongke_type']=$type[$i];
+			$message[$i]['numer']=$this->fotang_model->get_month_api($username,$type[$i]);
+		}
         $this->response($message, 200); // 200 being the HTTP response code
 	}
 	public function year_get()
 	{
 		$username = $this->input->server('PHP_AUTH_USER');
-        # code...
         # (念佛，诵经，持咒，吃素)
-        $message = array('gongke_type' =>'念佛',
-        				 'numer' =>$this->fotang_model->get_year_api($username,'念佛'));
+        $type = array('念佛','诵经','持咒','吃素');
+		for ($i=0; $i <4 ; $i++) { 
+			$message[$i]['gongke_type']=$type[$i];
+			$message[$i]['numer']=$this->fotang_model->get_year_api($username,$type[$i]);
+		}
         $this->response($message, 200); // 200 being the HTTP response code
 	}
 	public function gongke_post()

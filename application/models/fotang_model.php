@@ -28,6 +28,15 @@ class Fotang_model extends CI_Model {
 	public function get_year_api($user,$type)
 	{
 		# code...
+		$query = $this->db->query("select sum(number) from hhs_gongke where name='$user' and gongke_type='$type' and YEAR(riqi)=YEAR(NOW())");
+		if ($query->num_rows() > 0)
+		{
+			foreach ($query->result_array() as $row)
+			{
+				return $row['sum(number)'];
+			}
+		}
+		return 0;
 	}
 	public function add($user,$type,$number)
 	{
