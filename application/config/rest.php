@@ -94,7 +94,11 @@ $config['auth_source'] = '';
 */
 $config['auth_override_class_method']['fabao']['shop'] = 'basic';
 $config['auth_override_class_method']['fabao']['order'] = 'basic';
-$config['auth_override_class_method']['fotang']['index'] = 'basic';
+$config['auth_override_class_method']['fotang']['today'] = 'basic';
+$config['auth_override_class_method']['fotang']['month'] = 'basic';
+$config['auth_override_class_method']['fotang']['year'] = 'basic';
+$config['auth_override_class_method']['fotang']['gongke'] = 'basic';
+$config['auth_override_class_method']['fotang']['today_info'] = 'basic';
 // $config['auth_override_class_method']['deals']['insert'] = 'digest';
 // $config['auth_override_class_method']['accounts']['user'] = 'basic';
 
