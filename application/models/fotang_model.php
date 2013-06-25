@@ -67,14 +67,19 @@ class Fotang_model extends CI_Model {
 		$this->db->update('hhs_gongke', $data,array('id' => $id));
 		log_message('error','message'.$this->db->last_query());
 	}
+	public function delete($id)
+	{
+		$this->db->query("DELETE FROM `hhs_gongke` WHERE `id` IN($id)");
+		return true;
+	}
 	public function get_info_api($user,$type)
 	{
 		switch ($type) {
 			case 'today':
-				$query = $this->db->query("select * from hhs_gongke where name='$user' and TO_DAYS(riqi)=TO_DAYS(now())");
+				$query = $this->db->query("select id,gongke_type,number,riqi,beizhu from hhs_gongke where name='$user' and TO_DAYS(riqi)=TO_DAYS(now()) order by id desc");
 				break;
 			case 'month':
-				$query = $this->db->query("select * from hhs_gongke where name='$user' and MONTH(riqi)=MONTH(NOW()) and year(riqi)=year(now())");
+				$query = $this->db->query("select id,gongke_type,number,riqi,beizhu from hhs_gongke where name='$user' and MONTH(riqi)=MONTH(NOW()) and year(riqi)=year(now()) order by id desc");
 				break;
 			case 'year':
 				$query = $this->db->query("select * from hhs_gongke where name='$user' and year(riqi)=year(now())");
@@ -85,6 +90,19 @@ class Fotang_model extends CI_Model {
 		}
 		return $query->result_array();
 	}
+	public function get_info_api2($user,$start,$end)
+	{
+		$query = $this->db->query("select id,gongke_type,number,riqi,beizhu from hhs_gongke where name='$user' and riqi>'$start' and riqi < '$end' order by id desc");
+	//	log_message('error','message'.$this->db->last_query());
+		return $query->result_array();
+	}
+	public function get_year_info_api($user,$type,$start,$end)
+	{
+		$query = $this->db->query("select sum(number) from hhs_gongke where name='$user' and gongke_type='$type' and riqi>'$start' and riqi < '$end' order by id desc");
+	//	log_message('error','message'.$this->db->last_query());
+		return $this->get_sum($query);
+	}
+
 }
 
 /* End of file fotang_model.php */

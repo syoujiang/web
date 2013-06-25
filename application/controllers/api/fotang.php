@@ -68,6 +68,17 @@ class Fotang extends REST_Controller {
 			$this->response($message, 200); // 200 being the HTTP response code
 		# code...
 	}
+	public function gongke_delete()
+	{
+        # code...
+        $id=$this->delete('id');  
+        log_message('error','message'.$id);  
+        $this->fotang_model->delete($id);
+		$message = array('result' => '1',
+			'reason' => "删除成功");
+			$this->response($message, 200); // 200 being the HTTP response code
+		# code...
+	}
 
 
 	public function today_info_get()
@@ -79,13 +90,33 @@ class Fotang extends REST_Controller {
 	public function month_info_get()
 	{
 		$username = $this->input->server('PHP_AUTH_USER');
-		$message = $this->fotang_model->get_info_api($username,'month');
+		$month=$this->get('id');
+		if($month){
+			$starttime=$month."-1 00:00:00";
+			$endtime=$month."-31 23:23:59";
+			$message = $this->fotang_model->get_info_api2($username,$starttime,$endtime);
+		}
+		else{
+			$message = $this->fotang_model->get_info_api($username,'month');
+		}
 		$this->response($message, 200); // 200 being the HTTP response code
 	}
 	public function year_info_get()
 	{
 		$username = $this->input->server('PHP_AUTH_USER');
-		$message = $this->fotang_model->get_info_api($username,'year');
+		$count = date("n");
+		$type = array('念佛','诵经','持咒','吃素');
+
+		for ($i=$count; $i>0 ; $i--) {   
+			$starttime=date("Y-").$i."-1 00:00:00";
+			$endtime=date("Y-").$i."-31 23:23:59";
+			$month=date("Y-").$i;
+
+			for ($j=0; $j <4 ; $j++) { 
+				$message[$month][$j]['gongke_type']=$type[$j];
+				$message[$month][$j]['numer']=$this->fotang_model->get_year_info_api($username,$type[$j],$starttime,$endtime);
+			}
+		}
 		$this->response($message, 200); // 200 being the HTTP response code
 	}
 }
