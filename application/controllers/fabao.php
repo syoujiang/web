@@ -45,16 +45,20 @@ class Fabao extends CI_Controller {
 		{
 			$page_config['nowindex']=$this->uri->segment($page_config['seg']) ? $this->uri->segment($page_config['seg']):1;//当前页
 		}
+		$likename="";
 		if ($this->input->post('mymethod') == 'search') 
 		{
 			# code...
 			//$total= $this->fabao_model->search_count();
 			//SELECT * FROM `magazine` WHERE CONCAT（`title`,`tag`,`description`） LIKE ‘%关键字%’
-			echo $this->input->post('searchtext');
+			$likename = $this->input->post('searchtext');
+			$total= $this->fabao_model->get_fabao_numer($likename);
+			$this->db->count_all('hhs_fabao');
 		}
-		//else
+		else
+		{
 			$total= $this->db->count_all('hhs_fabao');
-		
+		}
 		$page_config['perpage']=10;   //每页条数
 		$page_config['part']=2;//当前页前后链接数量
 		$page_config['url']='fabao/index';//url
@@ -65,7 +69,10 @@ class Fabao extends CI_Controller {
 		$this->mypage->initialize($page_config);
 
 		$offset = ($page_config['nowindex']-1)*($page_config['perpage']);
-		$data['news'] = $this->fabao_model->get_fabao(($offset),$page_config['perpage']);
+		if($likename)
+			$data['news'] = $this->fabao_model->get_fabao2(($offset),$page_config['perpage'],$likename);
+		else
+			$data['news'] = $this->fabao_model->get_fabao(($offset),$page_config['perpage']);
 		$data['news_type']=$this->fabao_model->get_all_fabao_type();
 		$attributes = array('id' => 'indexform');
 		$hidden = array('deleteid' => '','mymethod'=>'');

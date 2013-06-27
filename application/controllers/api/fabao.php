@@ -53,7 +53,6 @@ class fabao extends REST_Controller
         $this->output->enable_profiler(TRUE);
         if($this->get('id'))
         {
-            echo $this->get('method');
             $types=$this->fabao_model->get_fabao_type($this->get('id'));
         }
         else
@@ -79,34 +78,11 @@ class fabao extends REST_Controller
         }
         $type_id = $this->get('type_id');
 
-        // if($this->get('contentid'))
-        // {
-        //     if(!$this->get('direct'))
-        //     {
-        //         $this->response(array(), 400);
-        //     }
-        //     else
-        //     {
-        //         $content=$this->fabao_model->get_fabao_limit_api($type_id,$this->get('contentid'),$this->get('direct'),$this->show_count); 
-        //     }
-        // }
-        // else
-        // {
-        //     $this->output->enable_profiler(TRUE);
-        //     $content=$this->fabao_model->get_fabao_limit_api($type_id,0,'none',$this->show_count); 
-        // }
         //法宝数量不多。一次都传递过去
         $content=$this->fabao_model->get_fabao_all_api($type_id);
         $sendmsg = array('bucket' => "hhs",
                     'fabao' => $content);
-        // if($content)
-        // {
-            $this->response($sendmsg, 200); // 200 being the HTTP response code
-        // }
-        // else
-        // {
-        //     $this->response($sendmsg, 200);
-        // }
+        $this->response($sendmsg, 200); // 200 being the HTTP response code
     }
     //获取资讯内容
     function content_one_get()
@@ -144,6 +120,22 @@ class fabao extends REST_Controller
             $this->response($sendmsg, 200); // 200 being the HTTP response code
         }
 
+    }
+
+    public function search_get()
+    {
+        $likename=$this->get('name');
+        $fabao_msg=$this->fabao_model->get_fabao_search($likename);
+        if($fabao_msg)
+        {
+            $sendmsg = array('bucket' => "hhs",
+                    'fabao' => $fabao_msg);
+        }
+        else
+        {
+            $sendmsg = array();
+        }
+        $this->response($sendmsg, 200); // 200 being the HTTP response code
     }
 
     public function tj_fabao_type_get()

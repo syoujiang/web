@@ -77,6 +77,20 @@ class Fabao_model extends CI_Model {
 	//	echo  $this->db->last_query();
 		return $query->result_array();
 	}
+	public function get_fabao2($offset,$num,$likename)
+	{
+		$this->db->order_by("id", "desc");
+		$this->db->like('fbname', $likename); 
+		$query = $this->db->get('hhs_fabao',$num,$offset);
+		echo  $this->db->last_query();
+		return $query->result_array();
+	}
+	public function get_fabao_numer($likename)
+	{
+		$this->db->like('fbname', $likename);
+		$this->db->from('hhs_fabao');
+		return $this->db->count_all_results();
+	}
 	public function delete_fabao($newsid)
 	{
 		$this->db->query("DELETE FROM `hhs_fabao` WHERE `id` IN($newsid)");
@@ -263,6 +277,13 @@ class Fabao_model extends CI_Model {
 		}
 		return;
 	}
+	public function get_fabao_search($likename)
+	{
+		$this->db->select('id, fbname, auth,summary,summary_fkey,summary_fname,kucun');
+		$this->db->like('fbname', $likename);
+		$query = $this->db->get_where('hhs_fabao');
+		return $query->result_array();
+	}
 	public function get_fabao_all_api($type_id)
 	{
 		$this->db->select('id, type,fbname, auth,summary,summary_url,summary_fkey,summary_fname,kucun');
@@ -292,19 +313,10 @@ class Fabao_model extends CI_Model {
 		}
 		if($count > 0) 
 		{
-			# code...
 			$allcount=$count+$number;
-			// echo $allcount;
-			// if ($allcount > 5) {
-			// 	return false;
-			// 	# code...
-			// }
-			// else
-			// {
-				$fabaonumber = array('number' => $allcount);
-				$this->db->update('hhs_shopping', $fabaonumber,$data);
-				return true;
-			// }
+			$fabaonumber = array('number' => $allcount);
+			$this->db->update('hhs_shopping', $fabaonumber,$data);
+			return true;
 		}
 		//不存在
 		else

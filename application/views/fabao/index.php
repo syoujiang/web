@@ -69,7 +69,7 @@ function submitForm(){
 }
 function searchForm(){
     indexform.mymethod.value="search";
-    alert(indexform.mymethod.value);
+    // alert(indexform.mymethod.value);
     indexform.submit();
 }
 </script>
