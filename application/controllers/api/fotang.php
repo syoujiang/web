@@ -49,11 +49,19 @@ class Fotang extends REST_Controller {
         $type=$this->post('type');    
         $number=$this->post('number');
         $beizhu=$this->post('beizhu');
-        $this->fotang_model->add($username,$type,$number,$beizhu);
-		$message = array('result' => '1',
+        if(!$type)
+        {
+        	$message = array('result' => '0',
+			'reason' => "添加失败");
+			$this->response($message, 200); // 200 being the HTTP response code
+        }
+        else
+        {
+        	$this->fotang_model->add($username,$type,$number,$beizhu);
+			$message = array('result' => '1',
 			'reason' => "添加成功");
 			$this->response($message, 200); // 200 being the HTTP response code
-		# code...
+		}
 	}
 	public function gongke_put()
 	{
