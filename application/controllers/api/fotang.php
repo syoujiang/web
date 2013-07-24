@@ -6,10 +6,23 @@ class Fotang extends REST_Controller {
 	{
 		parent::__construct();
 		$this->load->model('fotang_model');
+		$this->load->model('user_model');
 	}
 	public function today_get()
 	{
 		$username = $this->input->server('PHP_AUTH_USER');
+		if($username==null)
+		{
+			log_message('debug','have no username ');
+			$token=$this->get("token");
+			$username=$this->user_model->getUserName($token);
+			log_message('debug','token is '.$token);
+		}
+		if($username==null)
+		{
+			$this->_force_login();
+		}
+		log_message('debug','have username ('.$username.')');
         # code...
         // $message = $this->fotang_model->get_today_api($username);
         # (念佛，诵经，持咒，吃素)

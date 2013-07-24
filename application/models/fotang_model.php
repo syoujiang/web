@@ -8,6 +8,10 @@ class Fotang_model extends CI_Model {
 		$this->load->database();
 		$this->load->helper('date');
 	}
+	public function get($offset,$num)
+	{
+		return 0;
+	}
 	public function get_sum($query)
 	{
 		if ($query->num_rows() > 0)

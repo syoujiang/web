@@ -5,11 +5,12 @@ class Fotang extends CI_Controller {
 	{
 		parent::__construct();
 		//Do your magic here
-				$this->load->model('fabao_model');
+				$this->load->model('fotang_model');
 		$this->load->library('form_validation');
 		$this->load->helper('form');
 		$this->load->helper('url');
-		$this->sidebar = array();
+		$this->sidebar = array("<li><a href=\"".base_url('fotang/index')."\">佛堂</a></li>",
+						"<li><a href=\"".base_url('xinjing/index')."\">心经</a></li>");
 	}
 	public function index()
 	{
@@ -53,8 +54,7 @@ class Fotang extends CI_Controller {
 		$this->mypage->initialize($page_config);
 
 		$offset = ($page_config['nowindex']-1)*($page_config['perpage']);
-		$data['news'] = $this->fabao_model->get_fabao(($offset),$page_config['perpage']);
-		$data['news_type']=$this->fabao_model->get_all_fabao_type();
+		$data['news'] = $this->fotang_model->get(($offset),$page_config['perpage']);
 		$attributes = array('id' => 'indexform');
 		$hidden = array('deleteid' => '','mymethod'=>'');
 		$data['formurl'] = form_open('fabao/index', $attributes,$hidden);
@@ -63,7 +63,7 @@ class Fotang extends CI_Controller {
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/menu');
 		$this->load->view('templates/left',$data);
-		$this->load->view('fabao/index', $data);
+		$this->load->view('fotang/index', $data);
 		$this->load->view('templates/footer');
 	}
 
