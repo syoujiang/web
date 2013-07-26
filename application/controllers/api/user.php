@@ -23,6 +23,7 @@ class User extends REST_Controller {
 	{
 		parent::__construct();
 		$this->load->model('user_model');
+		$this->load->model('fabao_model');
 	}
 	public function register_post()
 	{
@@ -98,7 +99,22 @@ class User extends REST_Controller {
 			$this->response($sendmsg, 200); // 200 being the HTTP response code
 		}
 	}
+	// 我的布施
+	public function order_get()
+	{
+		$token=$this->get("token");
+		if($token=="")
+		{
+			$this->response(array('status' => false, 'error' => 'Not authorized'), 401);
 
+		}
+		else
+		{
+			log_message('debug','token '.$token);
+			log_message('debug','start check token is valid');
+		}
+
+	}
 }
 
 /* End of file user.php */
