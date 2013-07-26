@@ -92,12 +92,18 @@ class User_model extends CI_Model {
 		$this->db->from('hhs_users');
 		if($this->db->count_all_results()>0)
 		{
+			if($token!="")
+			{	
+				log_message('debug','token '.$token);
+				$this->db->where('token', $token);
+				$this->db->delete('hhs_users_token');
+			}
 			$token=$this->generate_token(32);
 			$data = array(
+					'mail' => $mail,
 	               'token' => $token
 	            );
-			$this->db->where('mail', $mail);
-			$this->db->update('hhs_users', $data);
+			$this->db->insert('hhs_users_token', $data);
 	 		return 1;
 		}
 		else
@@ -105,12 +111,12 @@ class User_model extends CI_Model {
 			return 0;
 		}
  	}
- 	public function logout($mail)
+ 	public function logout($mail,$token)
  	{
-		$data = array('token' => ""
-	        		);
-		$this->db->where('mail', $mail);
-		$this->db->update('hhs_users', $data);
+		$data = array('token' => $token,
+	        		   'mail' => $mail);
+		$this->db->where($data);
+		$this->db->delete('hhs_users_token');
 		return 1;
  	}
  	public function reset_passwd($mail,&$msg)

@@ -47,11 +47,13 @@ class User extends REST_Controller {
 
 	}
 
-	public function login_put()
+	public function login_post()
 	{
-		log_message('debug','login_put');
-		$mail=$this->put("mail");
-		$password=$this->put("password");
+		log_message('debug','login_post');
+		
+		$mail=$this->post("mail");
+		$password=$this->post("password");
+		$token=$this->post("token");
 		$result=$this->user_model->check_login($mail,$password,$token);
 		if($result==true)
 		{
@@ -70,8 +72,9 @@ class User extends REST_Controller {
 	public function login_delete()
 	{
 		log_message('debug','login_delete');
-		$mail=$this->put("mail");
-		$this->user_model->logout($mail);
+		$mail=$this->delete("mail");
+		$token=$this->delete("token");
+		$this->user_model->logout($mail,$token);
         $sendmsg = array('result' => "1",
                         'reason' => "注销成功");
 		$this->response($sendmsg, 200); // 200 being the HTTP response code
