@@ -99,7 +99,7 @@ class User extends REST_Controller {
 			$this->response($sendmsg, 200); // 200 being the HTTP response code
 		}
 	}
-	// 我的布施
+	// 我的结缘
 	public function order_get()
 	{
 		$token=$this->get("token");
@@ -112,6 +112,8 @@ class User extends REST_Controller {
 		{
 			log_message('debug','token '.$token);
 			log_message('debug','start check token is valid');
+
+
 		}
 
 	}
