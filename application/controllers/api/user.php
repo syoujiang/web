@@ -24,6 +24,7 @@ class User extends REST_Controller {
 		parent::__construct();
 		$this->load->model('user_model');
 		$this->load->model('fabao_model');
+		$this->load->model('news_model');
 	}
 	public function register_post()
 	{
@@ -106,14 +107,79 @@ class User extends REST_Controller {
 		if($token=="")
 		{
 			$this->response(array('status' => false, 'error' => 'Not authorized'), 401);
-
 		}
 		else
 		{
 			log_message('debug','token '.$token);
 			log_message('debug','start check token is valid');
+			$mail=$this->user_model->getMail($token);
+			if($mail == null)
+			{
+				$this->response(array('status' => false, 'error' => 'Not authorized'), 401);
+			}
+			else
+			{
+				log_message('debug','mail '.$mail);
+				$sendmsg=$this->fabao_model->get_order_by_mail_api($mail);
+				$this->response($sendmsg, 200); // 200 being the HTTP response code
+			}
 		}
 
+	}
+	// 我的收藏
+	public function news_get()
+	{
+		$token=$this->get("token");
+		if($token=="")
+		{
+			$this->response(array('status' => false, 'error' => 'Not authorized'), 401);
+		}
+		else
+		{
+			log_message('debug','token '.$token);
+			log_message('debug','start check token is valid');
+			$mail=$this->user_model->getMail($token);
+			if($mail == null)
+			{
+				$this->response(array('status' => false, 'error' => 'Not authorized'), 401);
+			}
+			else
+			{
+				log_message('debug','mail '.$mail);
+				$sendmsg=$this->news_model->get_news_by_mail_api($mail);
+				$this->response($sendmsg, 200); // 200 being the HTTP response code
+			}
+		}
+	}
+	// 添加收藏
+	public function news_post()
+	{
+		$token=$this->post("token");
+		if($token=="")
+		{
+			$this->response(array('status' => false, 'error' => 'Not authorized'), 401);
+		}
+		else
+		{
+			log_message('debug','token '.$token);
+			log_message('debug','start check token is valid');
+			$mail=$this->user_model->getMail($token);
+			if($mail == null)
+			{
+				$this->response(array('status' => false, 'error' => 'Not authorized'), 401);
+			}
+			else
+			{
+				log_message('debug','mail '.$mail);
+				$sendmsg=$this->news_model->get_news_by_mail_api($mail);
+				$this->response($sendmsg, 200); // 200 being the HTTP response code
+			}
+		}
+	}
+	// 删除收藏
+	public function news_delete()
+	{
+		# code...
 	}
 }
 

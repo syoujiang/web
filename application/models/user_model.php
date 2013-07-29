@@ -144,6 +144,15 @@ class User_model extends CI_Model {
 		$msg="已经交由管理员处理，请稍候！";
 		return 1;
  	}
+ 	public function getMail($token)
+ 	{
+ 		$query = $this->db->get_where('hhs_users_token', array('token' => $token));
+		foreach ($query->result_array() as $row)
+		{
+   			return $row['mail'];
+   		}
+   		return null;
+ 	}
 }
 
 /* End of file user_model.php */

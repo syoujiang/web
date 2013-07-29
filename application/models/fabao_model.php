@@ -412,6 +412,36 @@ class Fabao_model extends CI_Model {
 		return true;
 
 	}
+	public function get_order_by_mail_api($mail)
+	{
+		$this->db->order_by("order_time", "desc");
+		$query = $this->db->get_where('hhs_order',array('name' => $mail));
+		$sendmsg = array();
+		$i=0;
+		foreach ($query->result_array() as $row)
+		{
+			
+			log_message('debug','message '.$row['order_id']);
+			log_message('debug','message '.$row['status']);
+			log_message('debug','message '.$row['order_time']);
+			$content=$this->get_one_order($row['order_id']);
+
+			$content_count = count($content);
+			log_message('debug','message '.$row['order_id'].' count is '.$content_count);
+			$sendmsg[$i]['order_id']=$row['order_id'];
+
+			for ($j=0; $j <$content_count ; $j++) { 
+				log_message('debug','fabao_id '.$content[$j]['fabao_id']);
+				log_message('debug','number '.$content[$j]['number']);
+				$sendmsg[$i][$j]['fabao_name']=$this->getFbName($content[$j]['fabao_id']);
+				$sendmsg[$i][$j]['fabao_summary']=$this->getFbName($content[$j]['fabao_id']);
+				$sendmsg[$i][$j]['fabao_num']=$content[$j]['number'];
+			}
+			$sendmsg[$i]['order_time']=$row['order_time'];
+			$i++;
+		}
+		return $sendmsg;
+	}
 }
 
 /* End of file fabao_model.php */
