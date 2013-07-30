@@ -230,5 +230,24 @@ class news_model extends CI_Model
 		}
 		return $sendmsg;
 	}
+	public function add_news_to_collect($mail,$id)
+	{
+		$data = array(
+			'mail' => $mail,
+			'id' => $id
+			);
+
+		$query = $this->db->get_where('hhs_news_collect',$data);
+		if($query->num_rows()==0)
+		{
+			$this->db->insert('hhs_news_collect', $data);
+		}
+		log_message('debug','num_rows'.$query->num_rows());
+		return true;
+	}
+	public function delete_news_from_collect($mail,$id)
+	{
+		$this->db->delete('hhs_news_collect',array('mail' => $mail,'id' => $id));
+	}
 }
 ?>
