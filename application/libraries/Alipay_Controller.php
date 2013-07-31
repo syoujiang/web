@@ -124,10 +124,10 @@ abstract class Alipay_Controller extends CI_Controller
 		echo $html_text;
 	}
 	
-	public function call_back_url()
+	public function _call_back_url()
 	{
 		log_message('debug','ddddddddddddddddddd');
-		$alipayNotify = new AlipayNotify($alipay_config);
+		$alipayNotify = new AlipayNotify($this->alipay_config);
 		$verify_result = $alipayNotify->verifyReturn();
 		if($verify_result) 
 		{
@@ -166,7 +166,7 @@ abstract class Alipay_Controller extends CI_Controller
 			echo "验证失败";
 		}
 	}
-	public function notify_url()
+	public function _notify_url()
 	{
 		//计算得出通知验证结果
 		$alipayNotify = new AlipayNotify($alipay_config);
