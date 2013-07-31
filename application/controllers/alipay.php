@@ -19,12 +19,12 @@ class Alipay extends Alipay_Controller {
 		log_message('debug','Alipay post');
 		echo $this->notify_verify();
 	}
-	public function notify_url($value='')
+	public function notify_url()
 	{
 		log_message('debug','notify_url ');
 		$this->notify_url();
 	}
-	public function call_back_url($value='')
+	public function call_back_url()
 	{
 		log_message('debug','call_back_url ');
 		$this->call_back_url();
