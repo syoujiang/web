@@ -16,7 +16,7 @@
  * return 签名结果
  */
 function rsaSign($data, $private_key_path) {
-    $priKey = file_get_contents($private_key_path);
+    $priKey = file_get_contents(ALIPAY_KEY_DIR.$private_key_path);
     $res = openssl_get_privatekey($priKey);
     openssl_sign($data, $sign, $res);
     openssl_free_key($res);
@@ -33,7 +33,7 @@ function rsaSign($data, $private_key_path) {
  * return 验证结果
  */
 function rsaVerify($data, $ali_public_key_path, $sign)  {
-	$pubKey = file_get_contents($ali_public_key_path);
+	$pubKey = file_get_contents(ALIPAY_KEY_DIR.$ali_public_key_path);
     $res = openssl_get_publickey($pubKey);
     $result = (bool)openssl_verify($data, base64_decode($sign), $res);
     openssl_free_key($res);    
@@ -47,7 +47,7 @@ function rsaVerify($data, $ali_public_key_path, $sign)  {
  * return 解密后内容，明文
  */
 function rsaDecrypt($content, $private_key_path) {
-    $priKey = file_get_contents($private_key_path);
+    $priKey = file_get_contents(ALIPAY_KEY_DIR.$private_key_path);
     $res = openssl_get_privatekey($priKey);
 	//用base64将内容还原成二进制
     $content = base64_decode($content);
