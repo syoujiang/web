@@ -169,7 +169,7 @@ abstract class Alipay_Controller extends CI_Controller
 	public function _notify_url()
 	{
 		//计算得出通知验证结果
-		$alipayNotify = new AlipayNotify($alipay_config);
+		$alipayNotify = new AlipayNotify($this->alipay_config);
 		$verify_result = $alipayNotify->verifyNotify();
 
 		if($verify_result) {//验证成功
