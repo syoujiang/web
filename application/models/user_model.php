@@ -153,6 +153,16 @@ class User_model extends CI_Model {
    		}
    		return null;
  	}
+ 	public function create_alipay($mail,$price,$app)
+ 	{
+ 		$data = array(
+               'order_number' => $ ,
+               'mail' => $mail ,
+               'price' => $price,
+               'price_app' => $app
+            );
+		$this->db->insert('hhs_alipay_order', $data); 
+ 	}
 }
 
 /* End of file user_model.php */

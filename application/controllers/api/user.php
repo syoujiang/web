@@ -206,6 +206,61 @@ class User extends REST_Controller {
 			}
 		}
 	}
+	//create alipay order
+	public function alipay_post()
+	{
+		$token=$this->post("token");
+		if($token=="")
+		{
+			$this->response(array('status' => false, 'error' => 'Not authorized'), 401);
+		}
+		else
+		{
+			log_message('debug','token '.$token);
+			log_message('debug','start check token is valid');
+			$mail=$this->user_model->getMail($token);
+			if($mail == null)
+			{
+				$this->response(array('status' => false, 'error' => 'Not authorized'), 401);
+			}
+			else
+			{
+				$price=0;
+				$type=$this->post("type");
+				$number=$this->post("custom_price");
+				switch ($type) {
+					case 'A':
+						$price=50*$number;
+						break;
+					case 'B':
+						$price=100*$number;
+						break;
+					case 'C':
+						$price=500*$number;
+						break;
+					case 'D':
+						$price=$number;
+						break;					
+					default:
+						$price=0;
+						break;
+				}
+				if($price>0)
+				{	
+					$sendmsg=$this->user_model->create_alipay($mail,$price);
+					$message = array('result' => '1',
+					'reason' => "删除成功");
+					$this->response($message, 200); // 200 being the HTTP response code
+				}
+				else
+				{
+					$message = array('result' => '0',
+									'reason' => "捐助的数量要>0");
+									$this->response($message, 200); // 200 being the HTTP response code
+				}
+			}
+		}
+	}
 }
 
 /* End of file user.php */
