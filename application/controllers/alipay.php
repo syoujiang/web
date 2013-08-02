@@ -8,11 +8,25 @@ class Alipay extends Alipay_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->helper('form');
+		$this->load->model('user_model');
 	}
 
 	public function index()
 	{
-		$this->load->view('alipay/index');
+		$id=$this->uri->segment(3);
+		log_message('debug','message'.$id);
+		$date=array();
+		if($id != "")
+		{
+			log_message('debug','message11111111111');
+			$date=$this->user_model->get_alipay($id);
+			$this->load->view('alipay/index',$date);
+		}
+		else
+		{
+			$this->load->view('alipay/error');
+		}	
+		
 	}
 	public function create()
 	{

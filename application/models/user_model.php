@@ -5,7 +5,7 @@ class User_model extends CI_Model {
 	function __construct()
 	{
 		$this->load->database();
-		# code...
+		$this->load->helper('date');
 	}
 	function generate_token ($len = 32)
 	{
@@ -153,15 +153,25 @@ class User_model extends CI_Model {
    		}
    		return null;
  	}
- 	public function create_alipay($mail,$price,$app)
+ 	public function create_alipay($mail,$price,$app,&$order_sn)
  	{
+ 		$order_sn = date('ymdHis').substr(microtime(),2,4);
+ 		log_message('debug','order sn '.$order_sn);
  		$data = array(
-               'order_number' => $ ,
+               'order_number' => $order_sn ,
                'mail' => $mail ,
                'price' => $price,
-               'price_app' => $app
+               'price_app' => $app,
+               'order_status' => "1"
             );
 		$this->db->insert('hhs_alipay_order', $data); 
+ 	}
+ 	public function get_alipay($order_sn)
+ 	{
+ 		$this->db->select('order_number,price, price_app');
+		$query = $this->db->get_where('hhs_alipay_order', array('order_number' =>$order_sn,
+														'order_status' => '1'));
+		return $query->row_array();
  	}
 }
 

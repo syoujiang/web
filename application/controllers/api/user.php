@@ -228,6 +228,7 @@ class User extends REST_Controller {
 				$price=0;
 				$type=$this->post("type");
 				$number=$this->post("custom_price");
+				$app=$this->post("custom_app");
 				switch ($type) {
 					case 'A':
 						$price=50*$number;
@@ -247,9 +248,10 @@ class User extends REST_Controller {
 				}
 				if($price>0)
 				{	
-					$sendmsg=$this->user_model->create_alipay($mail,$price);
-					$message = array('result' => '1',
-					'reason' => "删除成功");
+					$sendmsg=$this->user_model->create_alipay($mail,$price,$app,$order_sn);
+					$message = array('order_sn' => $order_sn,
+										'result' => '1',
+										'reason' => "订单生产成功");
 					$this->response($message, 200); // 200 being the HTTP response code
 				}
 				else

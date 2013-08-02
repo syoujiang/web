@@ -159,58 +159,10 @@ ul,ol{
                 <a target="_blank" href="https://b.alipay.com/home.htm"><span>商家服务</span></a>|
                 <a target="_blank" href="http://help.alipay.com/support/index_sh.htm"><span>帮助中心</span></a>
             </dl>
-            <span class="title">支付宝手机网页支付快速通道</span>
+            <span class="title">没有订单号</span>
 		</div>
-        <div class="cashier-nav">
-            <ol>
-				<li class="current">1、确认信息 →</li>
-				<li>2、点击确认 →</li>
-				<li class="last">3、确认完成</li>
-            </ol>
-        </div>
-        <!-- <form name=alipayment action="alipay/create" method=post target="_blank"> -->
-        <?php     
-                $attributes = array('name' => 'alipayment',
-                                        'target' => '_blank');
-                echo form_open('alipay/create',$attributes); ?>
-            <div id="body" style="clear:left">
-                <dl class="content">
-                    <dt>卖家支付宝帐户：</dt>
-                  <dd>
-                        <span class="null-star">*</span>
-                        <input size="30" name="WIDseller_email" value="szhhs@honghuashe.com"/>
-                        <span></span>
-                    </dd>
-                    <dt>商户订单号：</dt>
-                    <dd>
-                        <span class="null-star">*</span>
-                        <input size="30" name="WIDout_trade_no" value="<?php echo $order_number ?>" />
-                        <span></span>
-                    </dd>
-                    <dt>订单名称：</dt>
-                    <dd>
-                        <span class="null-star">*</span>
-                        <input size="30" name="WIDsubject" value="<?php echo $price_app ?>" />
-                        <span></span>
-                    </dd>
-                    <dt>付款金额：</dt>
-                    <dd>
-                        <span class="null-star">*</span>
-                        <input size="30" name="WIDtotal_fee" value="<?php echo $price ?>" />
-                        <span></span>
-                    </dd>
-					<dt></dt>
-                    <dd>
-                        <span class="new-btn-login-sp">
-                            <button class="new-btn-login" type="submit" style="text-align:center;">确 认</button>
-                        </span>
-                    </dd>
-                </dl>
-            </div>
-		</form>
         <div id="foot">
 			<ul class="foot-ul">
-				<li><font class="note-help">如果您点击“确认”按钮，即表示您同意该次的执行操作。 </font></li>
 				<li>
 					支付宝版权所有 2011-2015 ALIPAY.COM 
 				</li>
