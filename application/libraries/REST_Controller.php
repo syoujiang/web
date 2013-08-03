@@ -1084,7 +1084,7 @@ abstract class REST_Controller extends CI_Controller
 			log_message('debug', 'performing LDAP authentication for $username');
 			return $this->_perform_ldap_auth($username, $password);
 		}
-		log_message('debug','user'.$username);
+
 		$valid_logins = & $this->config->item('rest_valid_logins');
 
 		if ( ! array_key_exists($username, $valid_logins))
@@ -1114,24 +1114,23 @@ abstract class REST_Controller extends CI_Controller
 
 		$username = NULL;
 		$password = NULL;
-		log_message('debug','username------------- ');
+
 		// mod_php
 		if ($this->input->server('PHP_AUTH_USER'))
 		{
 			$username = $this->input->server('PHP_AUTH_USER');
 			$password = $this->input->server('PHP_AUTH_PW');
-			log_message('debug','username-----1-------- ');
 		}
+
 		// most other servers
 		elseif ($this->input->server('HTTP_AUTHENTICATION'))
 		{
-			log_message('debug','username-----2------- ');
 			if (strpos(strtolower($this->input->server('HTTP_AUTHENTICATION')), 'basic') === 0)
 			{
 				list($username, $password) = explode(':', base64_decode(substr($this->input->server('HTTP_AUTHORIZATION'), 6)));
 			}
 		}
-		log_message('debug','username-----3-------- ');
+
 		if ( ! $this->_check_login($username, $password))
 		{
 			$this->_force_login();
