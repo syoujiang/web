@@ -206,6 +206,58 @@ class User extends REST_Controller {
 			}
 		}
 	}
+	public function address_post()
+	{
+		$token=$this->post("token");
+		if($token=="")
+		{
+			$this->response(array('status' => false, 'error' => 'Not authorized'), 401);
+		}
+		else
+		{
+			log_message('debug','token '.$token);
+			log_message('debug','start check token is valid');
+			$mail=$this->user_model->getMail($token);
+			if($mail == null)
+			{
+				$this->response(array('status' => false, 'error' => 'Not authorized'), 401);
+			}
+			else
+			{
+				$address=$this->post("address");
+				$this->user_model->set_address($address,$mail);
+				$message = array('result' => '1',
+					'reason' => "地址更新成功");
+				$this->response($message, 200); // 200 being the HTTP response code
+			}
+		}
+	}
+
+
+	//get alipay order
+	public function alipay_get()
+	{
+		$token=$this->get("token");
+		if($token=="")
+		{
+			$this->response(array('status' => false, 'error' => 'Not authorized'), 401);
+		}
+		else
+		{
+			log_message('debug','token '.$token);
+			log_message('debug','start check token is valid');
+			$mail=$this->user_model->getMail($token);
+			if($mail == null)
+			{
+				$this->response(array('status' => false, 'error' => 'Not authorized'), 401);
+			}
+			else
+			{
+				$sendmsg=$this->user_model->get_all_alipay($mail);
+				$this->response($sendmsg, 200); // 200 being the HTTP response code
+			}
+		}
+	}
 	//create alipay order
 	public function alipay_post()
 	{

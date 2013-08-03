@@ -171,7 +171,20 @@ class User_model extends CI_Model {
  		$this->db->select('order_number,price, price_app');
 		$query = $this->db->get_where('hhs_alipay_order', array('order_number' =>$order_sn,
 														'order_status' => '1'));
-		return $query->row_array();
+		return $query;
+ 	}
+ 	public function get_all_alipay($mail)
+ 	{
+ 		$this->db->select('price_time,price_app, price');
+ 		$query = $this->db->get_where('hhs_alipay_order', array('mail' =>$mail,
+														'order_status' => '2'));
+		return $query->result_array();
+ 	}
+ 	public function set_address($address,$mail)
+ 	{
+ 		$data = array('address' => $address);
+ 		$this->db->where('mail',$mail);
+		$this->db->update('hhs_users', $data);
  	}
 }
 
