@@ -353,6 +353,40 @@ class Fabao extends CI_Controller {
 		$this->load->view('fabao/order', $data);
 		$this->load->view('templates/footer');
 	}
+
+	public function order_update()
+	{
+		$id=$this->uri->segment(3);
+		$data = $this->fabao_model->get_order_by_id($id);
+		$content=$this->fabao_model->get_one_order($data['order_id']);
+        $content_count = count($content);
+        for ($i=0; $i <$content_count ; $i++) { 
+            $content[$i]['fabao_id']=$this->fabao_model->getFbName($content[$i]['fabao_id']);
+        }
+        $data['fabao_info']=$content;
+		$data['formurl'] = form_open('fabao/update_order');
+		$data['arrayleft'] = $this->sidebar;
+		$this->load->view('templates/head', $data);
+		$this->load->view('templates/menu');
+		$this->load->view('templates/left',$data);
+		$this->load->view('fabao/order_update', $data);
+		$this->load->view('templates/footer');
+	}
+	public function update_order()
+	{
+		$order_id=$this->input->post('order_id');
+		$this->fabao_model->update_order($order_id);
+		$data['base'] = $this->config->item('base_url');
+		$this->load->view('templates/head', $data); 
+		$data['showmsg']="更新成功";
+		$data['indexurl']=site_url('fabao/index');
+		$data['arrayleft'] = $this->sidebar;
+		$this->load->view('templates/head');  
+		$this->load->view('templates/menu');
+		$this->load->view('templates/left',$data);
+		$this->load->view('templates/success',$data);
+		$this->load->view('templates/footer');
+	}
 	function commit_type()
 	{
 		switch ($this->uri->segment(3)) {

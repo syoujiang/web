@@ -10,25 +10,17 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-		if($this->session->userdata('logged_in'))
-		{
-			$session_data = $this->session->userdata('logged_in');
-			$data['username'] = $session_data['username'];
-			//$this->load->view('news', $data);
-			redirect('news', 'refresh');
-		}
-		else
-		{
-			//If no session, redirect to login page
-			//redirect('login', 'refresh');
-			$this->load->view('login_view');
-		}
+		log_message('debug','message login index');
+		//If no session, redirect to login page
+		//redirect('login', 'refresh');
+		$this->load->view('login_view');
+
 	}
 	function logout()
 	{
-		$this->session->unset_userdata('logged_in');
+		$this->session->unset_userdata('user');
 		session_destroy();
-		redirect('login', 'refresh');
+		redirect('login/index', 'refresh');
 	}
 }
 

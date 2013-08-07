@@ -6,6 +6,6 @@
       <li><a href="<?php echo base_url('gonggao') ?>">公告管理</a></li>
       <li><a href="<?php echo base_url('yigong') ?>">其他</a></li>
       <li><a href="<?php echo base_url('fotang') ?>">佛堂</a></li>
-      <li><a href="<?php echo base_url('login/logout') ?>">注销</a></li>
+      <li><?php echo anchor('login/logout','注销','onclick="return confirm(\\"确定要注销？\\");"') ?></li>
     </ul>
 </div>

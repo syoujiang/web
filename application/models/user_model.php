@@ -39,11 +39,9 @@ class User_model extends CI_Model {
 		$this->db->where('password', MD5($password));
 		$this->db->limit(1);
 		$query = $this->db->get();
-		echo  $this->db->last_query();
-		echo $query->num_rows();
 		if($query->num_rows() == 1)
 		{
-			return $query->result();
+			return $query->result_array();
 		}
 		else
 		{

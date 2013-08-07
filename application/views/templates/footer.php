@@ -1,4 +1,4 @@
-<div id="footer">ºë»¯Éçfooter<span style="display:none">
+<div id="footer">footer<span style="display:none">
 </span>
 </div>
 </div>

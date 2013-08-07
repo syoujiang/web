@@ -362,15 +362,17 @@ class Fabao_model extends CI_Model {
 	}
 	public function get_order($offset,$num)
 	{
-		# code...
 		$this->db->order_by("order_time", "desc");
 		$query = $this->db->get('hhs_order',$num,$offset);
-	//	echo  $this->db->last_query();
 		return $query->result_array();
+	}
+	public function get_order_by_id($id)
+	{
+		$query = $this->db->get_where('hhs_order',array('order_id' => $id));
+		return $query->row_array();
 	}
 	public function get_one_order($id)
 	{
-		# code...
 		$query = $this->db->get_where('hhs_order_info',array('order_id' => $id));
 		return $query->result_array();
 	}
@@ -411,6 +413,12 @@ class Fabao_model extends CI_Model {
 		$errmsg = "提交成功";
 		return true;
 
+	}
+	public function update_order($order_id)
+	{
+		$order_data = array('status' => $this->input->post('shirts'));
+		$this->db->update('hhs_order',$order_data,array('order_id' =>$order_id));
+		echo  $this->db->last_query();
 	}
 	public function get_order_by_mail_api($mail)
 	{

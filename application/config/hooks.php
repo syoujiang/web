@@ -11,8 +11,8 @@
 */
 
 $hook['post_controller_constructor'] = array( 
-		'class' => 'ACL', 
-		'function' => 'auth', 
+		'class' => 'Acl', 
+		'function' => 'filter', 
 		'filename' => 'acl.php', 
 		'filepath' => 'hooks'
 	);
