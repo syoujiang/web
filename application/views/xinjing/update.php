@@ -18,8 +18,8 @@
                 post_params: {},
                 use_query_string: false,
                 file_post_name: "file",
-                file_size_limit : "10 MB",
-                file_types : "*.png;*.jpg;*.jpeg;*.gif",
+                file_size_limit : "20 MB",
+                file_types : "*.png;*.jpg;*.jpeg;*.gif;*.mp3",
                 file_types_description: "Web Image Files",
                 file_upload_limit : 100,
                 file_queue_limit : 0,
@@ -123,57 +123,39 @@
 
 <?php
     $attributes = array('name' => 'myform');
-    echo form_open('fabao/commit/update',$attributes);
+    echo form_open('xinjing/commit/update',$attributes);
 	echo form_hidden('news_id',$news_id); 
 ?>
-    <input type="hidden" name="sum_picture_id" value="<?php echo $summary_url ?>">
-    <input type="hidden" name="sum_picture_fkey" value="<?php echo $summary_fkey ?>">
-    <input type="hidden" name="sum_picture_fname" value="<?php echo $summary_fname ?>">
-    <input type="hidden" name="con_picture_id" value="<?php echo $lb_url ?>">
-    <input type="hidden" name="con_picture_fkey" value="<?php echo $lb_fkey ?>">
-    <input type="hidden" name="con_picture_fname" value="<?php echo $lb_fname ?>">
+    <input type="hidden" name="sum_picture_id" value="">
+    <input type="hidden" name="sum_picture_fkey" value="<?php echo $file_key ?>">
+    <input type="hidden" name="sum_picture_fname" value="<?php echo $file_name ?>">
     <input type="hidden" name="zx_content_phone" value="">
     <div class="container-fluid">
-        <legend>更新法宝</legend>
+        <legend>更新心经</legend>
         <table class="table table-striped">  
         <thead>  
             <tr>  
-                <th><label class="control-label" for="input01">法宝名称</label></th>  
-                <th><input type="input" name="title" value="<?php echo $fbname ?>"/></th>  
+                <th><label class="control-label" for="input01">心经名称</label></th>  
+                <th><input type="input" name="title" value="<?php echo $name ?>"/></th>  
             </tr>  
         </thead>  
         <tbody>  
             <tr>  
                 <td><label class="control-label" for="input01">类别</label></td>  
                 <td>        
-                <?php 
-                $options = array();
-                foreach ($news_type as $value) {
-                # code...
-                $options[$value['id']]=$value['fabao_type'];
-                }
-                echo form_dropdown('shirts', $options, 'large');
+                  <?php 
+                         $options = array(
+                                  '朝课'  => '朝课',
+                                  '暮课'    => '暮课',
+                                  '佛七'   => '佛七'
+                                );
+
+                    echo form_dropdown('shirts', $options, $type);
                 ?>
                 </td>  
             </tr>
-         <tr>  
-            <td><label class="control-label" for="input01">作者</label></td>  
-            <th><input type="input" name="auth" value="<?php echo $auth ?>"/></th>  
-        </tr>  
         <tr>  
-            <td><label class="control-label" for="input01">语种</label></td>  
-            <th><input type="input" name="language_type" value="<?php echo $language_type ?>"/></th>  
-        </tr>
-        <tr>  
-            <td><label class="control-label" for="input01">出版时间</label></td>  
-            <th><input type="input" name="public_time" value="<?php echo $public_time ?>"/></th>  
-        </tr> 
-        <tr>  
-            <td><label class="control-label" for="input01">摘要</label></td>  
-            <td><textarea class="input-xxlarge" rows="3" name="zx_summary"><?php echo str_replace("\\n","\n",$summary) ?></textarea></td>  
-        </tr>  
-        <tr>  
-            <td>上传摘要图片</td>  
+            <td>上传心经</td>  
             <td>
                 <form id="form1" action="index.php" method="post" enctype="multipart/form-data">
                 <div class="fieldset flash" id="fsUploadProgress">
@@ -191,34 +173,10 @@
             </td>  
         </tr>
         <tr>  
-            <td><label class="control-label" for="input01">目录摘要</label></td>  
-            <td><textarea class="input-xxlarge" rows="3" name="mulu_summary"><?php echo str_replace("\\n","\n",$mulu_summary) ?></textarea></td>  
-        </tr>  
-        <tr>  
-            <td><label class="control-label" for="input01">目录推荐</label></td>  
-            <td><textarea class="input-xxlarge" rows="3" name="mulu_tuijian"><?php echo str_replace("\\n","\n",$mulu_tuijian) ?></textarea></td>  
-        </tr>  
-        <tr>  
-            <td><label class="control-label" for="input01">目录详情</label></td>  
-            <td><textarea style="width:700px;height:200px;visibility:hidden;" name="text"><?php echo $content ?></textarea></td>  
+            <td><label class="control-label" for="input01">心经详情</label></td>  
+            <td><textarea style="width:700px;height:200px;visibility:hidden;" name="text"><?php echo $info ?></textarea></td>  
         </tr> 
-        <tr>  
-            <td><label class="control-label" for="input01">上传轮播图</label></td>  
-            <td>        
-                <form id="form2" action="index.php" method="post" enctype="multipart/form-data">
-                <div class="fieldset flash" id="fsUploadProgress2">
-                </div>
-               <div style="padding-left: 5px;">
-                <span id="spanButtonPlaceholder2"></span>
-                <input id="btnCancel2" type="button" value="Cancel All Uploads" onclick="swfu2.cancelQueue();" disabled="disabled" style="margin-left: 2px; height: 22px; font-size: 8pt;" />
-                </div>
-                <div id="divMsg2"></div>
-                <div id="thumbnails2">
-                    <ul id="pic_list2" style="margin:5px;"></ul>
-                </div>
-                </form>
-            </td>  
-        </tr>
+
         <tr>  
             <td></td>  
             <td><input type="button" name="getText" class="btn" value="更新"></td>  

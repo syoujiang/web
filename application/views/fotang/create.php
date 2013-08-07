@@ -128,11 +128,11 @@
     <input type="hidden" name="con_picture_fname" value="">
     <input type="hidden" name="zx_content_phone" value="">
 	<div class="container-fluid">
-        <legend>添加新的法宝</legend>
+        <legend>添加心经</legend>
         <table class="table table-striped">  
         <thead>  
             <tr>  
-                <th><label class="control-label" for="input01">法宝名称</label></th>  
+                <th><label class="control-label" for="input01">心经名称</label></th>  
                 <th><input type="input" name="title" /></th>  
             </tr>  
         </thead>  
@@ -140,14 +140,15 @@
             <tr>  
                 <td><label class="control-label" for="input01">类别</label></td>  
                 <td>        
-                <?php 
-                $options = array();
-                foreach ($news_type as $value) {
-                # code...
-                $options[$value['id']]=$value['fabao_type'];
-                }
-                echo form_dropdown('shirts', $options, 'large');
-                ?>
+                    <?php 
+                         $options = array(
+                                  '0'  => '朝课',
+                                  '1'    => '暮课',
+                                  '2'   => '佛七'
+                                );
+
+                        echo form_dropdown('shirts', $options, '0');
+                    ?>
                 </td>  
             </tr>
          <tr>  

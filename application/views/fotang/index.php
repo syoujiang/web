@@ -81,17 +81,19 @@ function searchForm(){
 <div id="content">
   <div class="container-fluid">
   	 <legend>佛堂管理</legend>
-<a class="btn btn-primary" href="<?php echo site_url("fabao/create") ?>">添加</a>
+<!-- <a class="btn btn-primary" href="<?php echo site_url("fabao/create") ?>">添加</a>
 <input class="btn btn-primary" type="button" value="删除" onclick="submitForm()">
 <input class="btn btn-primary" type="button" value="全选" id="selectAll">
-<input class="btn btn-primary" type="button" value="反选" id="unSelect">
-<input type="text" class="input-medium search-query" name="searchtext" value="<?php echo $searchtext ?>"><button type="button" class="btn" onclick="searchForm()">查找</button>
+<input class="btn btn-primary" type="button" value="反选" id="unSelect"> -->
+<!-- <input type="text" class="input-medium search-query" name="searchtext" value="<?php echo $searchtext ?>"><button type="button" class="btn" onclick="searchForm()">查找</button> -->
 <table class="table table-striped table-bordered table-condensed" class="ctl">
 <tbody><tr>
 <th></th>
 <th>序号</th>
-<th>昵称</th>
-<th>月份</th>
+<th>缘友</th>
+<th>类别</th>
+<th>数量</th>
+<th>日期</th>
 <th>预览</th>
 
 </tr>
@@ -105,19 +107,10 @@ function searchForm(){
 	   </label>
     </td>
 	<td><?php echo anchor('fotang/update/'.$news_item['id'],$index_id); $index_id++;?></td>
-	<td><?php echo mb_substr($news_item['fbname'],0,10); ?></td>
-	<td><?php  foreach ($news_type as $type) {
-                # code...
-                    if($type['id'] == $news_item['type'])
-                    {
-                        echo $type['fabao_type'];
-                        break;
-                    }
-                }
-        ?></td>
-	<td><?php echo $news_item['auth'];?></td>
-	<td><?php echo $news_item['language_type'] ?></td>
-    <td><?php echo mb_substr($news_item['public_time'],0,10); ?></td>
+	<td><?php echo mb_substr($news_item['name'],0,10); ?></td>
+	<td><?php echo $news_item['gongke_type'] ?></td>
+	<td><?php echo $news_item['number'];?></td>
+	<td><?php echo $news_item['riqi'] ?></td>
 	<td><?php echo anchor_popup('fabao/show/'.$news_item['id'],'预览'); ?></td>
 	
 	</tr>

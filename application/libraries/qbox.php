@@ -126,10 +126,10 @@ class qbox extends CI_Controller{
 	{
 		# code...
 		log_message('error','delete key is ['.$fkey."]");
-		list($code, $error) = $this->rs->Delete($key);
-		log_message('error',"===> Delete $key result:".$code);
+		list($code, $error) = $this->rs->Delete($fkey);
+		log_message('error',"===> Delete $fkey result:".$code);
 		if ($code == 200) {
-			log_message('error',"Delete file $key ok!");
+			log_message('error',"Delete file $fkey ok!");
 		} else {
 			$msg = QBox\ErrorMessage($code, $error);
 			die("Delete failed: $code - $msg\n");

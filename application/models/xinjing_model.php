@@ -13,22 +13,12 @@ class Xinjing_model extends CI_Model {
 		$tmp =preg_replace("/\s/","",$tmp);
 		$data = array(
 		'name' => $this->input->post('title'),
-		'xueming' => $this->input->post('xueming'),
-		'quyu' => $this->input->post('quyu'),
-		'gaishu' => $this->input->post('gaishu'),
-		'summary_url' => $this->input->post('sum_picture_id'),
-		'summary_fkey' => $this->input->post('sum_picture_fkey'),
-		'summary_fname' => $this->input->post('sum_picture_fname'),
-		'tezheng' => $this->input->post('tezheng'),
-		'xixing' => $this->input->post('text'),
-		'xixing_phone' => $tmp ,
-		'fangshengdidian' => $this->input->post('fangshengdidian'),
-		'jiage' => $this->input->post('jiage'),
-		'con_fkey' => $this->input->post('con_picture_fkey'),
-		'con_fname' => $this->input->post('con_picture_fname'),
-		'con_url' => $this->input->post('con_picture_id')
+		'type' => $this->input->post('shirts'),
+		'file_key' => $this->input->post('sum_picture_fkey'),
+		'file_name' => $this->input->post('sum_picture_fname'),
+		'info' => $tmp
 		);
-		$this->db->insert('hhs_fangsheng_wuzhong', $data);
+		$this->db->insert('hhs_xinjing', $data);
 		//echo  $this->db->last_query();
 		return;
 	}
@@ -45,13 +35,13 @@ class Xinjing_model extends CI_Model {
 	public function get($offset,$num)
 	{
 		$this->db->order_by("id", "desc");
-		$query = $this->db->get('hhs_fangsheng_wuzhong',$num,$offset);
+		$query = $this->db->get('hhs_xinjing',$num,$offset);
 	//	echo  $this->db->last_query();
 		return $query->result_array();
 	}
 	public function getOne($id)
 	{
-		return $this->db->get_where('hhs_fangsheng_wuzhong', array('id' => $id))->row_array();
+		return $this->db->get_where('hhs_xinjing', array('id' => $id))->row_array();
 	}
 	public function update($id)
 	{
@@ -60,28 +50,17 @@ class Xinjing_model extends CI_Model {
 		$tmp =preg_replace("/\s/","",$tmp);
 		$data = array(
 		'name' => $this->input->post('title'),
-		'xueming' => $this->input->post('xueming'),
-		'quyu' => $this->input->post('quyu'),
-		'gaishu' => $this->input->post('gaishu'),
-		'summary_url' => $this->input->post('sum_picture_id'),
-		'summary_fkey' => $this->input->post('sum_picture_fkey'),
-		'summary_fname' => $this->input->post('sum_picture_fname'),
-		'tezheng' => $this->input->post('tezheng'),
-		'xixing' => $this->input->post('text'),
-		'xixing_phone' => $tmp ,
-		'fangshengdidian' => $this->input->post('fangshengdidian'),
-		'jiage' => $this->input->post('jiage'),
-		'con_fkey' => $this->input->post('con_picture_fkey'),
-		'con_fname' => $this->input->post('con_picture_fname'),
-		'con_url' => $this->input->post('con_picture_id')
+		'type' => $this->input->post('shirts'),
+		'file_key' => $this->input->post('sum_picture_fkey'),
+		'file_name' => $this->input->post('sum_picture_fname'),
+		'info' => $tmp
 		);
 		$this->db->where('id',$id);
-		$this->db->update('hhs_fangsheng_wuzhong', $data);
+		$this->db->update('hhs_xinjing', $data);
 	}
 	public function delete($newsid)
 	{
-		# code...
-		$this->db->query("DELETE FROM `hhs_fangsheng_wuzhong` WHERE `id` IN($newsid)");
+		$this->db->query("DELETE FROM `hhs_xinjing` WHERE `id` IN($newsid)");
 		return true;
 	}
 
@@ -89,13 +68,13 @@ class Xinjing_model extends CI_Model {
 	public function get_type_api()
 	{
 		$this->db->select('id,name,summary_url,summary_fname,summary_fkey');
-		$query = $this->db->get_where('hhs_fangsheng_wuzhong');
+		$query = $this->db->get_where('hhs_xinjing');
 		return $query->result_array();
 	}
 	public function getOne_api($id)
 	{
 		$this->db->select('id,name,xueming,quyu,xixing_phone,gaishu,tezheng,fangshengdidian,jiage,con_url,con_fname,con_fkey');
-		$query = $this->db->get_where('hhs_fangsheng_wuzhong', array('id' => $id));
+		$query = $this->db->get_where('hhs_xinjing', array('id' => $id));
 		return $query->row_array();
 	}
 }

@@ -15,7 +15,6 @@ class Fotang extends CI_Controller {
 	public function index()
 	{
 		$page_config['seg']=3;//参数取 index.php之后的段数，默认为3，即index.php/control/function/18 这种形式
-		// echo $this->uri->total_segments();
 		if($this->uri->total_segments() == 4)
 		{
 			if($this->uri->segment(3)=='on')
@@ -34,19 +33,19 @@ class Fotang extends CI_Controller {
 		{
 			$page_config['nowindex']=$this->uri->segment($page_config['seg']) ? $this->uri->segment($page_config['seg']):1;//当前页
 		}
-		if ($this->input->post('mymethod') == 'search') 
-		{
-			# code...
-			//$total= $this->fabao_model->search_count();
-			//SELECT * FROM `magazine` WHERE CONCAT（`title`,`tag`,`description`） LIKE ‘%关键字%’
-			echo $this->input->post('searchtext');
-		}
+		// if ($this->input->post('mymethod') == 'search') 
+		// {
+		// 	# code...
+		// 	//$total= $this->fabao_model->search_count();
+		// 	//SELECT * FROM `magazine` WHERE CONCAT（`title`,`tag`,`description`） LIKE ‘%关键字%’
+		// 	echo $this->input->post('searchtext');
+		// }
 		//else
-			$total= $this->db->count_all('hhs_fabao');
+			$total= $this->db->count_all('hhs_gongke');
 		
 		$page_config['perpage']=10;   //每页条数
 		$page_config['part']=2;//当前页前后链接数量
-		$page_config['url']='fabao/index';//url
+		$page_config['url']='fotang/index';//url
 		$page_config['seg']=3;//参数取 index.php之后的段数，默认为3，即index.php/control/function/18 这种形式
 		// $page_config['nowindex']=$this->uri->segment($page_config['seg']) ? $this->uri->segment($page_config['seg']):1;//当前页
 		$page_config['total']=$total;
@@ -57,7 +56,7 @@ class Fotang extends CI_Controller {
 		$data['news'] = $this->fotang_model->get(($offset),$page_config['perpage']);
 		$attributes = array('id' => 'indexform');
 		$hidden = array('deleteid' => '','mymethod'=>'');
-		$data['formurl'] = form_open('fabao/index', $attributes,$hidden);
+		$data['formurl'] = form_open('fotang/index', $attributes,$hidden);
 		$data['arrayleft'] = $this->sidebar;
 		$data['searchtext'] = $this->input->post('searchtext');
 		$this->load->view('templates/head', $data);
