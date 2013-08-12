@@ -93,6 +93,7 @@ class QBox_RS_Service
 	public function Get($key, $attName) {
 		$entryURI = $this->Bucket . ':' . $key;
 		$url = QBOX_RS_HOST . '/get/' . QBox_Encode($entryURI) . '/attName/' . QBox_Encode($attName);
+		log_message('debug','Get'.$url);
 		return QBox_OAuth2_Call($this->Conn, $url);
 	}
 
