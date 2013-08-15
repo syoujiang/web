@@ -84,10 +84,12 @@ class Uploadtest extends CI_Controller {
 		        }
 		        $previewURL = $this->qbox->GetDownloadURL("hhshe.qiniudn.com",$filekey);
 				log_message('error','$previewURL '.$previewURL);
+				$delURL=$this->qbox->DeleteQiniuFile($filekey);
 		        # 最后返回处理结果
 		        if (isset($previewURL)) {
 		            die(json_encode(array(	"code" => 200,
 		            						"preview"=>$previewURL, 
+		            						"deleteurl"=>$delURL, 
 		            						"data" => array("success" => true))));
 		        } else {
 		            die(json_encode(array("code" => 499, "data" => array("errmsg" => "Insert Failed"))));

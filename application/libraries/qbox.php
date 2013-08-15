@@ -63,25 +63,7 @@ class qbox extends CI_Controller{
 	}
 	public function GetBucket()
 	{
-		# code...
 		return $this->bucket;
-	}
-	public function GetupToken()
-	{
-		# code...
-		return $this->upToken;
-	}
-	public function GetPictureURL($key, $attName)
-	{
-		$previewURL="";
-		list($result, $code, $error) = $this->rs->Get($key, $attName);
-		if ($code == 200) {
-			$previewURL = QBox_FileOp_ImagePreviewURL($result['url'], 0);
-		} else {
-			$errnum = $code;
-			$errmsg = QBox\ErrorMessage($code, $error);
-		}
-		return $previewURL;
 	}
 	public function GetDownloadURL($domain, $key)
 	{
@@ -91,17 +73,15 @@ class qbox extends CI_Controller{
 		$privateUrl = $getPolicy->MakeRequest($baseUrl, null);
 		return $privateUrl;
 	}
-	public function Delete($fkey)
+	public function DeleteQiniuFile($fkey)
 	{
-		# code...
-		log_message('error','delete key is ['.$fkey."]");
-		list($code, $error) = $this->rs->Delete($fkey);
-		log_message('error',"===> Delete $fkey result:".$code);
-		if ($code == 200) {
-			log_message('error',"Delete file $fkey ok!");
+		$client = new Qiniu_MacHttpClient(null);
+		$err = Qiniu_RS_Delete($client, $this->bucket, $fkey);
+		echo "====> Qiniu_RS_Delete result: \n";
+		if ($err !== null) {
+		    var_dump($err);
 		} else {
-			$msg = QBox\ErrorMessage($code, $error);
-			die("Delete failed: $code - $msg\n");
+		    echo "Success!";
 		}
 		return true;
 	}

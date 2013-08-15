@@ -1,97 +1,77 @@
+  <link rel="stylesheet" type="text/css" href="<?php echo site_url() ?>res/uploadify.css" />
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="<?php echo site_url() ?>res/jquery.uploadify-3.1.min.js"></script>
+  <script type='text/javascript' >
+    $(function() {
+     $('#upload_btn').uploadify({
+      'debug'   : false,
 
-   <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/jquery.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/utf8_encode.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/utf8_decode.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/base64_encode.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/base64_decode.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/uniqid.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/helper.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/swfupload/swfupload.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/swfupload.queue.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/fileprogress.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/handlers.js'); ?>"></script>
-    <script type="text/javascript">
-        var swfu,swfu2;
-        window.onload = function() {
-            var settings = {
-                flash_url : "<?php echo base_url('/bootstrap/assets/swfupload/swfupload.swf');?>",
-                upload_url: "<?php echo $upload_url; ?>",
-                post_params: {},
-                use_query_string: false,
-                file_post_name: "file",
-                file_size_limit : "10 MB",
-                file_types : "*.png;*.jpg;*.jpeg;*.gif",
-                file_types_description: "Web Image Files",
-                file_upload_limit : 100,
-                file_queue_limit : 0,
-                custom_settings : {
-                    fileUniqIdMapping : {},
-                    progressTarget : "fsUploadProgress",
-                    cancelButtonId : "btnCancel"
-                },
-                debug: false,
+      'swf'   : '<?php echo site_url() ?>res/uploadify.swf',
+      'uploader'  : 'http://up.qiniu.com/',
+      'cancelImage' : '<?php echo site_url() ?>res/uploadify-cancel.png',
+      'queueID'  : 'file-queue',
+      'buttonClass'  : 'button',
+      'buttonText' : "Upload Files",
+      'multi'   : false,
+      'auto'   : true,
 
-                // Button Settings
-                button_image_url : "<?php echo base_url('bootstrap/assets/images/XPButtonUploadText_61x22.png'); ?>",
-                button_placeholder_id : "spanButtonPlaceholder1",
-                button_width: 61,
-                button_height: 22,
+      'fileTypeExts' : '*.jpg; *.png; *.gif; *.PNG; *.JPG; *.GIF;',
+      'fileTypeDesc' : 'Image Files',
 
-                // The event handler functions are defined in handlers.js
-                file_queued_handler : fileQueued,
-                file_queue_error_handler : fileQueueError,
-                file_dialog_complete_handler : fileDialogComplete,
-                upload_start_handler : uploadStart,
-                upload_progress_handler : uploadProgress,
-                upload_error_handler : uploadError,
-                upload_success_handler : uploadSuccess,
-                upload_complete_handler : uploadComplete,
-                queue_complete_handler : queueComplete  // Queue plugin event
-        };
-            var settings2 = {
-            flash_url : "<?php echo base_url('bootstrap/assets/swfupload/swfupload.swf'); ?>",
-            upload_url: "<?php echo $upload_url; ?>",
-            post_params: {},
-            use_query_string: false,
-            file_post_name: "file",
-            file_size_limit : "10 MB",
-            file_types : "*.png;*.jpg;*.jpeg;*.gif",
-            file_types_description: "Web Image Files",
-            file_upload_limit : 100,
-            file_queue_limit : 0,
-            custom_settings : {
-                fileUniqIdMapping : {},
-                progressTarget : "fsUploadProgress2",
-                cancelButtonId : "btnCancel2"
-            },
-            debug: false,
+      'method'  : 'post',
+      'fileObjName' : 'file',
+      'formData'  : {'token' : '<?php echo $upToken;?>'},
 
-            // Button Settings
-            button_image_url : "<?php echo base_url('bootstrap/assets/images/XPButtonUploadText_61x22.png'); ?>",
-            button_placeholder_id : "spanButtonPlaceholder2",
-            button_width: 61,
-            button_height: 22,
+      'queueSizeLimit': 40,
+      'simUploadLimit': 1,
+      'sizeLimit'  : 10240000,
+      'onUploadSuccess' : function(file, data, response) {   
+      var objs=JSON.parse(data);
+      alert(objs.hash);
+      var postData = {
+        "action": "insert",
+        "file_key": objs.hash
+      };
 
-            // The event handler functions are defined in handlers.js
-            file_queued_handler : fileQueued,
-            file_queue_error_handler : fileQueueError,
-            file_dialog_complete_handler : fileDialogComplete,
-            upload_start_handler : uploadStart,
-            upload_progress_handler : uploadProgress,
-            upload_error_handler : uploadError,
-            upload_success_handler : uploadSuccess2,
-            upload_complete_handler : uploadComplete,
-            queue_complete_handler : queueComplete  // Queue plugin event
-        };
-        swfu = new SWFUpload(settings);
-        swfu = new SWFUpload(settings2);
-        };
+      // 通过AJAX异步向网站业务服务器POST数据
+        $.ajax({
+          type: "POST",
+          url: '<?php echo $callback_path ?>',
+          processData: true,
+          data: postData,
+          dataType: "json",
+          beforeSend: function(){},
+          complete: function(xhr, textStatus){
+            alert(xhr.readyState);
+            if(xhr.readyState ==4)
+            {
+                alert(xhr.status);
+              if(xhr.status ==200)
+              {
+                var obj=JSON.parse(xhr.responseText);
+                alert(obj.preview);
+                alert(obj.deleteurl);
+                $('#theDiv').prepend('<img id="theImg" src='+obj.preview+' />')
+              }
+            }
+          },
+          success:function(resp){
+          }
+        });   
+
+      }, 
+      'onComplete': function(event,queueID,fileObj,response,data) { 
+        alert("sdfasdfas");
+      },
+      'onError'          : function(event, queueID, fileObj)  
+      {   
+        alert("文件:" + fileObj.name + " 上传失败");   
+      }
+        });
+
+     });
     </script>
-    <script type="text/javascript">
-    var $bucket = '<?php echo $bucket; ?>';
-    var $upToken = '<?php echo $upToken;?>';
-</script>
-<script>
+  <script>
         var editor,editor2;
         KindEditor.ready(function(K) {
             editor2 = K.create('textarea[name="text"]', {
@@ -157,15 +137,14 @@
         <tr>  
             <td>上传摘要图片</td>  
             <td>
-                <form id="form1" action="index.php" method="post" enctype="multipart/form-data">
-                <div class="fieldset flash" id="fsUploadProgress">
-                </div>
-  
-                <div style="padding-left: 5px;">
-                <span id="spanButtonPlaceholder1"></span>
-                <input id="btnCancel" type="button" value="Cancel All Uploads" onclick="swfu.cancelQueue();" disabled="disabled" style="margin-left: 2px; height: 22px; font-size: 8pt;" />
-                </div>
-                </form>
+                <table class="table">
+                <div id="theDiv"></div>
+                <a href=""><i class="icon-trash"></i> Delete</a>
+                 </table>
+
+                <div class="uploadify-queue" id="file-queue"></div>
+                <input type="file" name="file" id="upload_btn" />    
+          
             </td>  
         </tr>
         <tr>  

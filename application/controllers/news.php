@@ -74,9 +74,9 @@ class news extends CI_Controller
 		{
 			$data['base'] = $this->config->item('base_url');
 			$data['news_type'] = $this->news_model->get_all_news_type();
-			$data['upload_url'] = $this->qbox->GetUploadURL();
-			$data['bucket'] = $this->qbox->GetBucket();
-			$data['upToken'] = $this->qbox->GetupToken();
+			// $data['upload_url'] = $this->qbox->GetUploadURL();
+			$data['callback_path'] = base_url('uploadtest/callback');
+			$data['upToken'] = $this->qbox->GetUploadURL();
 			$this->load->view('templates/head', $data); 
 			$this->load->view('templates/menu');
 			$this->load->view('templates/left',$data); 
