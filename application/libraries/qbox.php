@@ -19,74 +19,47 @@ date_default_timezone_set('Asia/Shanghai');
 define('ROOT_DIR', str_replace(array('\\\\', '//'), DIRECTORY_SEPARATOR, dirname(dirname(__FILE__))) . DIRECTORY_SEPARATOR);
 define('QINIU_DIR', ROOT_DIR . 'libraries' . DIRECTORY_SEPARATOR);
 define('LIB_DIR', QINIU_DIR . 'lib' . DIRECTORY_SEPARATOR);
-define('QBOX_SDK_DIR', LIB_DIR . 'qiniu' . DIRECTORY_SEPARATOR . 'qbox' . DIRECTORY_SEPARATOR);
+// define('QBOX_SDK_DIR', LIB_DIR . 'qiniu' . DIRECTORY_SEPARATOR . 'qbox' . DIRECTORY_SEPARATOR);
 /**
  * 加载配置文件
  */
-//echo ROOT_DIR."<br>";
-//echo QINIU_DIR."<br>";
-//echo LIB_DIR."<br>";
-//echo QBOX_SDK_DIR."<br>";
-
-require_once QINIU_DIR . 'config.php';
-require_once QINIU_DIR . 'helper.php';
 require_once LIB_DIR . 'rs.php';
-require_once LIB_DIR . 'fileop.php';
-require_once LIB_DIR . 'client/rs.php';
-require_once LIB_DIR . 'authtoken.php';
-//require_once LIB_DIR . 'pdo.class.php';
+require_once LIB_DIR . 'io.php';
+require_once LIB_DIR . 'fop.php';
+require_once LIB_DIR . 'http.php';
 /**
  * 设置错误报告级别
  */
-error_reporting($config['error']['reporting']);
-
 class qbox extends CI_Controller{
-	protected $rs = NULL;
+	protected $client = NULL;
 	protected $bucket;
 	protected $upToken;
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->database();
-		$config = array(
-
-			# DEBUG
-			'error' => array(
-			'reporting'       => 4095,
-			'throw_exception' => true,
-			),
-
-			# qiniu account
-			'qbox' => array(
-			'access_key' => 'LtcS2cGr8WfCpgfZGyX6YDmW4OjOEwt_rNGO0gog',
-			'secret_key' => 'XDbYbJN3nkYlgnOulKbCOM_tDE3EUh50A0lpwq6o',
-			'bucket'     => 'hhs',
-			),
-
-		);
-		$this->bucket = $config["qbox"]["bucket"];
-		$QBOX_ACCESS_KEY = $config["qbox"]["access_key"];
-		$QBOX_SECRET_KEY = $config["qbox"]["secret_key"];
-		$client = QBox_OAuth2_NewClient();
-		$this->rs = QBox_RS_NewService($client, $this->bucket);
-		$opts = array(
-		"scope"			=> "hhs",
-		"expiresIn"		=> 3600,
-		"callbackUrl"	=> "http://example.com/callback?a=b&d=c",
-		);
-		$this->upToken = QBox_MakeAuthToken($opts);
+		$this->bucket = 'hhs';
+		$accessKey = 'LtcS2cGr8WfCpgfZGyX6YDmW4OjOEwt_rNGO0gog';
+		$secretKey = 'XDbYbJN3nkYlgnOulKbCOM_tDE3EUh50A0lpwq6o';
+		Qiniu_setKeys($accessKey, $secretKey);
+		// $client = new Qiniu_MacHttpClient(null);
+		$putPolicy = new Qiniu_RS_PutPolicy($this->bucket);
+		 // $putPolicy->ReturnUrl="http://127.0.0.1/";
+		$putPolicy->ReturnBody='{
+					    "foo": "bar",
+					    "name": $(fname),
+					    "size": $(fsize),
+					    "type": $(mimeType),
+					    "hash": $(etag),
+					    "w": $(imageInfo.width),
+					    "h": $(imageInfo.height),
+					    "color": $(exif.ColorSpace.val)
+					}';
+		$this->upToken = $putPolicy->Token(null);
 	}
 	public function GetUploadURL()
 	{
-		# code...
-		list($result, $code, $error) = $this->rs->PutAuth();
-		if ($code == 200) {
-			$upload_url = $result["url"];
-		} else {
-		$msg = QBox_ErrorMessage($code, $error);
-		die("PutFile failed: $code - $msg\n");
-		}
-		return $upload_url;
+		return $this->upToken;
 	}
 	public function GetBucket()
 	{
@@ -110,17 +83,13 @@ class qbox extends CI_Controller{
 		}
 		return $previewURL;
 	}
-	public function GetDownloadURL($key, $attName)
+	public function GetDownloadURL($domain, $key)
 	{
 		$previewURL="";
-		list($result, $code, $error) = $this->rs->Get($key, $attName);
-		if ($code == 200) {
-			$previewURL = $result['url'];
-		} else {
-			$errnum = $code;
-			$errmsg = QBox\ErrorMessage($code, $error);
-		}
-		return $previewURL;
+		$baseUrl = Qiniu_RS_MakeBaseUrl($domain, $key);
+		$getPolicy = new Qiniu_RS_GetPolicy();
+		$privateUrl = $getPolicy->MakeRequest($baseUrl, null);
+		return $privateUrl;
 	}
 	public function Delete($fkey)
 	{
