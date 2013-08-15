@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="<?php echo site_url() ?>res/uploadify.css" />
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-  <script type="text/javascript" src="<?php echo site_url() ?>res/jquery.uploadify-3.1.min.js"></script>
+  <script type="text/javascript" src="<?php echo site_url() ?>res/jquery.uploadify.min.js"></script>
   <title></title>
 </head>
 <body>

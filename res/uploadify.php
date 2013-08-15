@@ -8,7 +8,9 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 // Define a destination
 $targetFolder = '/uploads'; // Relative to the root
 
-if (!empty($_FILES)) {
+$verifyToken = md5('unique_salt' . $_POST['timestamp']);
+
+if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
 	$tempFile = $_FILES['Filedata']['tmp_name'];
 	$targetPath = $_SERVER['DOCUMENT_ROOT'] . $targetFolder;
 	$targetFile = rtrim($targetPath,'/') . '/' . $_FILES['Filedata']['name'];

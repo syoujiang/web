@@ -1,6 +1,6 @@
   <link rel="stylesheet" type="text/css" href="<?php echo site_url() ?>res/uploadify.css" />
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-  <script type="text/javascript" src="<?php echo site_url() ?>res/jquery.uploadify-3.1.min.js"></script>
+ <script type="text/javascript" src="<?php echo site_url() ?>res/jquery.uploadify-3.1.min.js"></script>
   <script type='text/javascript' >
     $(function() {
      $('#upload_btn').uploadify({
@@ -139,7 +139,7 @@
             <td>
                 <table class="table">
                 <div id="theDiv"></div>
-                <a href=""><i class="icon-trash"></i> Delete</a>
+                <!-- <a href=""><i class="icon-trash"></i> Delete</a> -->
                  </table>
 
                 <div class="uploadify-queue" id="file-queue"></div>
