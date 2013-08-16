@@ -1,7 +1,43 @@
   <link rel="stylesheet" type="text/css" href="<?php echo site_url() ?>res/uploadify.css" />
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
- <script type="text/javascript" src="<?php echo site_url() ?>res/jquery.uploadify-3.1.min.js"></script>
+ <script type="text/javascript" src="<?php echo site_url() ?>res/jquery.uploadify.min.js"></script>
   <script type='text/javascript' >
+  var del1 = function () {   
+        var list=$("ul input");
+        var myVal
+        list.each(function(){
+            myVal = this.value;
+        }) 
+        var postData = {
+            "action": "delete",
+            "file_key": myVal
+        };
+        // 通过AJAX异步向网站业务服务器POST数据
+        $.ajax({
+            type: "POST",
+            url: '<?php echo $callback_path ?>',
+            processData: true,
+            data: postData,
+            dataType: "json",
+            beforeSend: function(){},
+            complete: function(xhr, textStatus){
+                if(xhr.readyState ==4)
+                {
+                    if(xhr.status ==200)
+                    {
+                        myform.con_picture_id.value="";
+                        myform.con_picture_fkey.value="";
+                        myform.con_picture_fname.value="";
+                        $("#divMsg1").show();
+                        $("#divMsg1").html("删除成功！");
+                    }
+                }
+            },
+            success:function(resp){
+            }
+        });   
+        $(this).remove();      
+} 
     $(function() {
      $('#upload_btn').uploadify({
       'debug'   : false,
@@ -42,16 +78,25 @@
           dataType: "json",
           beforeSend: function(){},
           complete: function(xhr, textStatus){
-            alert(xhr.readyState);
             if(xhr.readyState ==4)
             {
-                alert(xhr.status);
               if(xhr.status ==200)
               {
+                console.log(xhr.responseText);
                 var obj=JSON.parse(xhr.responseText);
-                alert(obj.preview);
-                alert(obj.deleteurl);
-                $('#theDiv').prepend('<img id="theImg" src='+obj.preview+' />')
+                // alert(obj);
+                //  alert(obj.preview);
+                alert($('#pic_list1 li').length);
+                if($('#pic_list1 li').length >0)
+                {
+                    del1();
+                }
+                $("#pic_list1 li").remove();
+                // alert(obj.deleteurl);
+                // $('#theDiv').prepend('<img id="theImg" src='+obj.preview+' />')
+                $("#pic_list1").prepend( "<li id='li'><img class='content'  src='" + obj.preview + "'><img class='button' src='../../bootstrap/assets/images/fancy_close.png'>"+
+                        "<input id='"+objs.hash+"' name='fkey' type=\"hidden\" value='"+objs.hash+"''></li>");      
+                $("#pic_list1 li").bind("click",del1);    
               }
             }
           },
@@ -137,9 +182,9 @@
         <tr>  
             <td>上传摘要图片</td>  
             <td>
-                <table class="table">
-                <div id="theDiv"></div>
-                <!-- <a href=""><i class="icon-trash"></i> Delete</a> -->
+                <table role="presentation" class="table table-striped">
+ <!--                <div id="theDiv"></div>   -->
+                    <ul id="pic_list1" style="margin:5px;"></ul>
                  </table>
 
                 <div class="uploadify-queue" id="file-queue"></div>

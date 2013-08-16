@@ -1,10 +1,18 @@
 <?php
 
 require_once("http.php");
-
 // ----------------------------------------------------------
 // class Qiniu_RS_GetPolicy
+function Qiniu_SetHost($uphost, $rshot,$rsfhost)
+{
+	global $QINIU_UP_HOST;
+	global $QINIU_RS_HOST;
+	global $QINIU_RSF_HOST;
 
+	$QINIU_UP_HOST = $uphost;
+	$QINIU_RS_HOST = $rshot;
+	$QINIU_RSF_HOST = $rsfhost;
+}
 class Qiniu_RS_GetPolicy
 {
 	public $Expires;
@@ -156,6 +164,8 @@ function Qiniu_RS_Delete($self, $bucket, $key) // => $error
 {
 	global $QINIU_RS_HOST;
 	$uri = Qiniu_RS_URIDelete($bucket, $key);
+	log_message('error','message '.$uri);
+	log_message('error','$QINIU_RS_HOST '.$QINIU_RS_HOST);
 	return Qiniu_Client_CallNoRet($self, $QINIU_RS_HOST . $uri);
 }
 

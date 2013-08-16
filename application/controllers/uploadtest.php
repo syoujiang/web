@@ -84,12 +84,12 @@ class Uploadtest extends CI_Controller {
 		        }
 		        $previewURL = $this->qbox->GetDownloadURL("hhshe.qiniudn.com",$filekey);
 				log_message('error','$previewURL '.$previewURL);
-				$delURL=$this->qbox->DeleteQiniuFile($filekey);
+				// $delURL=$this->qbox->DeleteQiniuFile($filekey);
 		        # 最后返回处理结果
 		        if (isset($previewURL)) {
 		            die(json_encode(array(	"code" => 200,
 		            						"preview"=>$previewURL, 
-		            						"deleteurl"=>$delURL, 
+		            						// "deleteurl"=>$delURL, 
 		            						"data" => array("success" => true))));
 		        } else {
 		            die(json_encode(array("code" => 499, "data" => array("errmsg" => "Insert Failed"))));
@@ -98,7 +98,8 @@ class Uploadtest extends CI_Controller {
 		    case 'delete':
 		    	# code...
 				$filekey = isset($_POST["file_key"]) ? trim($_POST["file_key"]) : "";
-				$this->qbox->Delete($filekey);
+				log_message('error',' delete message '.$filekey);
+				$this->qbox->DeleteQiniuFile($filekey);
 	            die(json_encode(array(	"code" => 200,
 						"data" => array("success" => true))));
 		    	break;
