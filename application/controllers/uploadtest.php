@@ -7,7 +7,8 @@ class Uploadtest extends CI_Controller {
 	   parent::__construct();
 	   $this->load->helper(array('url', 'form'));
 	   $this->load->library(array('session', 'encrypt'));
-	   		$this->load->helper('url');
+	   $this->load->helper('url');
+	   $this->load->model('news_model');
 		$this->load->library('qbox');
 	}
 
@@ -33,10 +34,9 @@ class Uploadtest extends CI_Controller {
 		echo $_GET['upload_ret'];
 		$qniu_res=$this->urlsafe_base64_decode($_GET['upload_ret']);
 		$obj=json_decode($qniu_res);
-		// $this->qbox->GetDownloadURL("hhshe.qiniudn.com",$obj->hash);
 		$token['uptoken'] = $this->qbox->GetUploadURL();
 		$token['filename'] =date('ymdHis').substr(microtime(),2,4)."jpg";
-		$token['fileprev'] = $this->qbox->GetDownloadURL("hhshe.qiniudn.com",$obj->hash);
+		$token['fileprev'] = $this->qbox->GetDownloadURL($obj->hash);
 		log_message('error','$token '.$token['fileprev']);
 		$this->load->view('upload_form',$token);
 	}
@@ -82,23 +82,65 @@ class Uploadtest extends CI_Controller {
 		            $resp = json_encode(array("code" => 400, "data" => array("errmsg" => "Invalid Params, <file_key> and <file_name> cannot be empty")));
 		            die($resp);
 		        }
-		        $previewURL = $this->qbox->GetDownloadURL("hhshe.qiniudn.com",$filekey);
+		        $previewURL = $this->qbox->GetDownloadURL($filekey);
 				log_message('error','$previewURL '.$previewURL);
-				$delURL=$this->qbox->DeleteQiniuFile($filekey);
+				// $delURL=$this->qbox->DeleteQiniuFile($filekey);
 		        # 最后返回处理结果
 		        if (isset($previewURL)) {
 		            die(json_encode(array(	"code" => 200,
 		            						"preview"=>$previewURL, 
-		            						"deleteurl"=>$delURL, 
+		            						// "deleteurl"=>$delURL, 
 		            						"data" => array("success" => true))));
 		        } else {
 		            die(json_encode(array("code" => 499, "data" => array("errmsg" => "Insert Failed"))));
 		        }
 		        break;
+		   	case "show":
+		   		$previewURL1="";
+		   		$previewURL2="";
+		        $filekey1 = isset($_POST["file1_key"]) ? trim($_POST["file1_key"]) : "";
+				$filekey2 = isset($_POST["file2_key"]) ? trim($_POST["file2_key"]) : "";
+		        if($filekey1 != ""){
+		            $previewURL1 = $this->qbox->GetDownloadURL($filekey1);
+		        }
+		        if($filekey2 != ""){
+		            $previewURL2 = $this->qbox->GetDownloadURL($filekey2);
+		        }
+		        log_message('error','message show ('.$previewURL1.")(".$previewURL2.")");
+		        # 最后返回处理结果
+	            die(json_encode(array(	"code" => 200,
+	            						"preview1"=>$previewURL1, 
+	            						"preview2"=>$previewURL2, 
+	            						"data" => array("success" => true))));
+		        break;
 		    case 'delete':
 		    	# code...
 				$filekey = isset($_POST["file_key"]) ? trim($_POST["file_key"]) : "";
-				$this->qbox->Delete($filekey);
+				log_message('error',' delete message '.$filekey);
+				$this->qbox->DeleteQiniuFile($filekey);
+	            die(json_encode(array(	"code" => 200,
+						"data" => array("success" => true))));
+		    	break;
+		    # 如果是未知操作，返回错误
+		    case 'update_delete':
+		    	# code...
+				$filekey = isset($_POST["file_key"]) ? trim($_POST["file_key"]) : "";
+				$id = isset($_POST["id"]) ? trim($_POST["id"]) : "";
+				$dbname=isset($_POST["dbname"]) ? trim($_POST["dbname"]) : "";
+				$type=isset($_POST["type"]) ? trim($_POST["type"]) : "";
+				log_message('error','message '.$dbname);
+				switch ($dbname) {
+					case 'hhs_news':
+						// $this->load->model('news_model');
+						$this->news_model->delete_news_fkey($id,$type);
+						break;
+					
+					default:
+						# code...
+						break;
+				}
+				log_message('error',' delete message '.$filekey);
+				$this->qbox->DeleteQiniuFile($filekey);
 	            die(json_encode(array(	"code" => 200,
 						"data" => array("success" => true))));
 		    	break;

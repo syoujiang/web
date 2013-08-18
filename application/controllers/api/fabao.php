@@ -30,6 +30,7 @@ class fabao extends REST_Controller
         $this->load->model('user_model');
         $this->load->database();
         $this->load->helper('url');
+        $this->load->library('qbox');
         $this->show_count = $this->config->item('news_limit_no');
     }
     public function index_get()
@@ -80,15 +81,22 @@ class fabao extends REST_Controller
 
         //法宝数量不多。一次都传递过去
         $content=$this->fabao_model->get_fabao_all_api($type_id);
-        $sendmsg = array('bucket' => "hhs",
-                    'fabao' => $content);
+        $sendmsg = array();
+        $i=0;
+        foreach ($content as $rows)  
+        {  
+            $rows['summary_url']=$this->qbox->GetDownloadURL($rows['summary_fkey']);
+            $sendmsg[$i]=$rows;
+            $i++;
+        }  
         $this->response($sendmsg, 200); // 200 being the HTTP response code
     }
     //获取资讯内容
     function content_one_get()
     {
-        $this->load->model('yunfei_model');
-        $yunfei=$this->yunfei_model->get_api();
+        $this->db->select('info_iphone');
+        $query = $this->db->get('hhs_fabao_yufei');
+        $yunfei= $query->row_array();
         if(!$this->get('id'))
         {
             $sendmsg = array('bucket' => "hhs",
@@ -104,16 +112,27 @@ class fabao extends REST_Controller
         if($content)
         {
             $content_tuijian=$this->fabao_model->get_tuijian($content['type']);
-            $sendmsg = array('bucket' => "hhs",
+            
+            $content['summary_url']=$this->qbox->GetDownloadURL($content['summary_fkey']);
+  
+            $sendmsg2 = array();
+            $i=0;
+            foreach ($content_tuijian as $rows)  
+            {  
+                $rows['summary_url']=$this->qbox->GetDownloadURL($rows['summary_fkey']);
+                $sendmsg2[$i]=$rows;
+                $i++;
+            }  
+            $sendmsg3 = array(
                                 'fabao' => $content,
-                                'tuijian' => $content_tuijian,
+                                'tuijian' => $sendmsg2,
                                 'yunfei' => $yunfei);
-            $this->response($sendmsg, 200); // 200 being the HTTP response code
+            $this->response($sendmsg3, 200); // 200 being the HTTP response code
         }
         else
         {
 
-            $sendmsg = array('bucket' => "hhs",
+            $sendmsg = array(
                             'fabao' => array(),
                             'tuijian' => array(),
                             'yunfei' => $yunfei);

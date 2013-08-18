@@ -1,77 +1,5 @@
-  <link rel="stylesheet" type="text/css" href="<?php echo site_url() ?>res/uploadify.css" />
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
- <script type="text/javascript" src="<?php echo site_url() ?>res/jquery.uploadify-3.1.min.js"></script>
-  <script type='text/javascript' >
-    $(function() {
-     $('#upload_btn').uploadify({
-      'debug'   : false,
 
-      'swf'   : '<?php echo site_url() ?>res/uploadify.swf',
-      'uploader'  : 'http://up.qiniu.com/',
-      'cancelImage' : '<?php echo site_url() ?>res/uploadify-cancel.png',
-      'queueID'  : 'file-queue',
-      'buttonClass'  : 'button',
-      'buttonText' : "Upload Files",
-      'multi'   : false,
-      'auto'   : true,
-
-      'fileTypeExts' : '*.jpg; *.png; *.gif; *.PNG; *.JPG; *.GIF;',
-      'fileTypeDesc' : 'Image Files',
-
-      'method'  : 'post',
-      'fileObjName' : 'file',
-      'formData'  : {'token' : '<?php echo $upToken;?>'},
-
-      'queueSizeLimit': 40,
-      'simUploadLimit': 1,
-      'sizeLimit'  : 10240000,
-      'onUploadSuccess' : function(file, data, response) {   
-      var objs=JSON.parse(data);
-      alert(objs.hash);
-      var postData = {
-        "action": "insert",
-        "file_key": objs.hash
-      };
-
-      // 通过AJAX异步向网站业务服务器POST数据
-        $.ajax({
-          type: "POST",
-          url: '<?php echo $callback_path ?>',
-          processData: true,
-          data: postData,
-          dataType: "json",
-          beforeSend: function(){},
-          complete: function(xhr, textStatus){
-            alert(xhr.readyState);
-            if(xhr.readyState ==4)
-            {
-                alert(xhr.status);
-              if(xhr.status ==200)
-              {
-                var obj=JSON.parse(xhr.responseText);
-                alert(obj.preview);
-                alert(obj.deleteurl);
-                $('#theDiv').prepend('<img id="theImg" src='+obj.preview+' />')
-              }
-            }
-          },
-          success:function(resp){
-          }
-        });   
-
-      }, 
-      'onComplete': function(event,queueID,fileObj,response,data) { 
-        alert("sdfasdfas");
-      },
-      'onError'          : function(event, queueID, fileObj)  
-      {   
-        alert("文件:" + fileObj.name + " 上传失败");   
-      }
-        });
-
-     });
-    </script>
-  <script>
+<script>
         var editor,editor2;
         KindEditor.ready(function(K) {
             editor2 = K.create('textarea[name="text"]', {
@@ -137,11 +65,9 @@
         <tr>  
             <td>上传摘要图片</td>  
             <td>
-                <table class="table">
-                <div id="theDiv"></div>
-                <!-- <a href=""><i class="icon-trash"></i> Delete</a> -->
+                <table role="presentation" class="table table-striped">
+                    <ul id="pic_list1" style="margin:5px;"></ul>
                  </table>
-
                 <div class="uploadify-queue" id="file-queue"></div>
                 <input type="file" name="file" id="upload_btn" />    
           
@@ -158,16 +84,11 @@
         <tr>  
             <td><label class="control-label" for="input01">上传图片</label></td>  
             <td>        
-                <form id="form2" action="index.php" method="post" enctype="multipart/form-data">
-                <div class="fieldset flash" id="fsUploadProgress2">
-                </div>
-
-
-                <div style="padding-left: 5px;">
-                <span id="spanButtonPlaceholder2"></span>
-                <input id="btnCancel2" type="button" value="Cancel All Uploads" onclick="swfu2.cancelQueue();" disabled="disabled" style="margin-left: 2px; height: 22px; font-size: 8pt;" />
-                </div>
-                </form>
+                <table role="presentation" class="table table-striped">
+                    <ul id="pic_list2" style="margin:5px;"></ul>
+                 </table>
+                <div class="uploadify-queue" id="file-queue2"></div>
+                <input type="file" name="file" id="upload_btn2" />    
             </td>  
         </tr>
         <tr>  

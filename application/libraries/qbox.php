@@ -42,9 +42,12 @@ class qbox extends CI_Controller{
 		$accessKey = 'LtcS2cGr8WfCpgfZGyX6YDmW4OjOEwt_rNGO0gog';
 		$secretKey = 'XDbYbJN3nkYlgnOulKbCOM_tDE3EUh50A0lpwq6o';
 		Qiniu_setKeys($accessKey, $secretKey);
-		// $client = new Qiniu_MacHttpClient(null);
+		$uphost  = 'http://up.qiniu.com';
+		$rehost  = 'http://rs.qbox.me';
+		$rsfhost = 'http://rsf.qbox.me';
+
+		Qiniu_SetHost($uphost,$rehost,$rsfhost);
 		$putPolicy = new Qiniu_RS_PutPolicy($this->bucket);
-		 // $putPolicy->ReturnUrl="http://127.0.0.1/";
 		$putPolicy->ReturnBody='{
 					    "foo": "bar",
 					    "name": $(fname),
@@ -65,23 +68,31 @@ class qbox extends CI_Controller{
 	{
 		return $this->bucket;
 	}
-	public function GetDownloadURL($domain, $key)
+	public function GetDownloadURL($key)
 	{
 		$previewURL="";
-		$baseUrl = Qiniu_RS_MakeBaseUrl($domain, $key);
-		$getPolicy = new Qiniu_RS_GetPolicy();
-		$privateUrl = $getPolicy->MakeRequest($baseUrl, null);
-		return $privateUrl;
+		if($key!="")
+		{
+			$domain="hhshe.qiniudn.com";
+			$baseUrl = Qiniu_RS_MakeBaseUrl($domain, $key);
+			$getPolicy = new Qiniu_RS_GetPolicy();
+			$previewURL = $getPolicy->MakeRequest($baseUrl, null);
+		}
+		return $previewURL;
 	}
 	public function DeleteQiniuFile($fkey)
 	{
-		$client = new Qiniu_MacHttpClient(null);
-		$err = Qiniu_RS_Delete($client, $this->bucket, $fkey);
+		$this->client = new Qiniu_MacHttpClient(null);
+		log_message('error','$this->client '.$this->client);
+		log_message('error','$this->$fkey '.$fkey);
+		$err = Qiniu_RS_Delete($this->client, $this->bucket, $fkey);
 		echo "====> Qiniu_RS_Delete result: \n";
 		if ($err !== null) {
-		    var_dump($err);
+			$string = var_export($err, TRUE);
+		    log_message('error','DeleteQiniuFile error '.$string);
 		} else {
 		    echo "Success!";
+		    log_message('error','DeleteQiniuFile Success!');
 		}
 		return true;
 	}

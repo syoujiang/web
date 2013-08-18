@@ -171,9 +171,8 @@ class Fabao extends CI_Controller {
 		{
 			$data['base'] = $this->config->item('base_url');
 			$data['news_type'] = $this->fabao_model->get_all_fabao_type();
-			$data['upload_url'] = $this->qbox->GetUploadURL();
-			$data['bucket'] = $this->qbox->GetBucket();
-			$data['upToken'] = $this->qbox->GetupToken();
+			$data['callback_path'] = base_url('uploadtest/callback');
+			$data['upToken'] = $this->qbox->GetUploadURL();
 			$this->load->view('templates/head', $data); 
 			$this->load->view('templates/menu');
 			$this->load->view('templates/left',$data); 
@@ -200,9 +199,8 @@ class Fabao extends CI_Controller {
 		$data=$this->fabao_model->getOneFabao($id);
 		$data['news_type']=$this->fabao_model->get_all_fabao_type();
 		$data['base'] = $this->config->item('base_url');
-		$data['upload_url'] = $this->qbox->GetUploadURL();
-		$data['bucket'] = $this->qbox->GetBucket();
-		$data['upToken'] = $this->qbox->GetupToken();
+		$data['callback_path'] = base_url('uploadtest/callback');
+		$data['upToken'] = $this->qbox->GetUploadURL();
 		$data['news_id'] = $id;
 		$data['arrayleft'] = $this->sidebar;
 		$this->load->view('templates/head', $data);  

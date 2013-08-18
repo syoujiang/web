@@ -51,9 +51,8 @@ class Fangsheng extends CI_Controller {
 		if ($this->form_validation->run() === FALSE)
 		{
 			$data['base'] = $this->config->item('base_url');
-			$data['upload_url'] = $this->qbox->GetUploadURL();
-			$data['bucket'] = $this->qbox->GetBucket();
-			$data['upToken'] = $this->qbox->GetupToken();
+			$data['callback_path'] = base_url('uploadtest/callback');
+			$data['upToken'] = $this->qbox->GetUploadURL();
 			$this->load->view('templates/head', $data); 
 			$this->load->view('templates/menu');
 			$this->load->view('templates/left',$data); 
@@ -89,9 +88,8 @@ class Fangsheng extends CI_Controller {
 		$id=$this->uri->segment(3);
 		$data=$this->fangsheng_model->getOne($id);
 		$data['base'] = $this->config->item('base_url');
-		$data['upload_url'] = $this->qbox->GetUploadURL();
-		$data['bucket'] = $this->qbox->GetBucket();
-		$data['upToken'] = $this->qbox->GetupToken();
+		$data['callback_path'] = base_url('uploadtest/callback');
+		$data['upToken'] = $this->qbox->GetUploadURL();
 		$data['news_id'] = $id;
 		$data['arrayleft'] = $this->sidebar;
 		$this->load->view('templates/head', $data);  

@@ -120,9 +120,8 @@ class news extends CI_Controller
 		$data=$this->news_model->getOneNews($id);
 		$data['base'] = $this->config->item('base_url');
 		$data['news_type'] = $this->news_model->get_all_news_type();
-		$data['upload_url'] = $this->qbox->GetUploadURL();
-		$data['bucket'] = $this->qbox->GetBucket();
-		$data['upToken'] = $this->qbox->GetupToken();
+		$data['callback_path'] = base_url('uploadtest/callback');
+		$data['upToken'] = $this->qbox->GetUploadURL();
 		$data['news_id'] = $id;
 		$data['arrayleft'] = array("<li><a href=\"".base_url('news_type')."\">资讯类别</a></li>",
 							"<li><a href=\"".base_url('news')."\">资讯管理</a></li>" );

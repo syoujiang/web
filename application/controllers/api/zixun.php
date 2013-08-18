@@ -30,6 +30,7 @@ class zixun extends REST_Controller
         $this->load->model('user_model');
         $this->load->database();
         $this->load->helper('url');
+        $this->load->library('qbox');
         $this->show_count = $this->config->item('news_limit_no');
     }
     // 获取资讯类别
@@ -58,6 +59,7 @@ class zixun extends REST_Controller
     //获取资讯的摘要
 	function content_get()
     {
+
         if(!$this->get('type_id'))
         {
         	$this->response(NULL, 400);
@@ -83,7 +85,16 @@ class zixun extends REST_Controller
 
         if($content)
         {
-            $this->response($content, 200); // 200 being the HTTP response code
+            $sendmsg = array();
+            $i=0;
+            foreach ($content as $rows)  
+            {  
+                $rows['summary_url']=$this->qbox->GetDownloadURL($rows['summary_fkey']);
+                $sendmsg[$i]=$rows;
+                $i++;
+            }  
+
+            $this->response($sendmsg, 200); // 200 being the HTTP response code
         }
 
         else
@@ -101,14 +112,9 @@ class zixun extends REST_Controller
 
         $this->output->enable_profiler(TRUE);
         $content=$this->news_model->getOneNews_api($this->get('id'));
-        $jasondata = array();
-        foreach ($content as $rows)  
-        {  
-        //    echo $rows."\r\n";  
-        }  
-    
         if($content)
-        {
+        { 
+            $content['content_url']=$this->qbox->GetDownloadURL($content['content_fkey']);
             $this->response($content, 200); // 200 being the HTTP response code
         }
 

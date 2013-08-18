@@ -116,6 +116,27 @@ class news_model extends CI_Model
 		return $this->db->query("DELETE FROM `hhs_news` WHERE `id` IN($newsid)");
 		# code...
 	}
+	public function delete_news_fkey($id,$type)
+	{
+		$slug = url_title($this->input->post('title'), 'dash', TRUE);
+		$tmp=$this->input->post('zx_content_phone');
+		$tmp =preg_replace("/\s/","",$tmp);
+		if($type == 0)
+		{
+			$data = array(
+			'summary_fkey' => ""
+			);
+		}
+		else
+		{		
+			$data = array(
+			'content_fkey' => "");
+		}
+
+		$this->db->where('id',$id);
+		$this->db->update('hhs_news', $data);
+		log_message('error','message '.$this->db->last_query());
+	}
 	public function update_news($id)
 	{
 		$slug = url_title($this->input->post('title'), 'dash', TRUE);

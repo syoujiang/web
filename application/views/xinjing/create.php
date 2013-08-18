@@ -1,59 +1,113 @@
+<link rel="stylesheet" type="text/css" href="<?php echo site_url() ?>res/uploadify.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?php echo site_url() ?>res/jquery.uploadify.min.js"></script>
+<script type='text/javascript' >
+var del1 = function () {   
+  var list=$("ul input");
+  var myVal
+  list.each(function(){
+    myVal = this.value;
+  }) 
+  var postData = {
+    "action": "delete",
+    "file_key": myVal
+  };
+  // 通过AJAX异步向网站业务服务器POST数据
+  $.ajax({
+      type: "POST",
+      url: '<?php echo $callback_path ?>',
+      processData: true,
+      data: postData,
+      dataType: "json",
+      beforeSend: function(){},
+      complete: function(xhr, textStatus){
+          if(xhr.readyState ==4)
+          {
+              if(xhr.status ==200)
+              {
+                  myform.con_picture_id.value="";
+                  myform.con_picture_fkey.value="";
+                  myform.con_picture_fname.value="";
+                  $("#divMsg1").show();
+                  $("#divMsg1").html("删除成功！");
+              }
+          }
+      },
+      success:function(resp){
+      }
+  });   
+  $(this).remove();      
+} 
 
-   <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/jquery.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/utf8_encode.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/utf8_decode.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/base64_encode.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/base64_decode.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/uniqid.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/helper.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/swfupload/swfupload.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/swfupload.queue.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/fileprogress.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('bootstrap/assets/js/handlers.js'); ?>"></script>
-    <script type="text/javascript">
-        var swfu,swfu2;
-        window.onload = function() {
-            var settings = {
-                flash_url : "<?php echo base_url('/bootstrap/assets/swfupload/swfupload.swf');?>",
-                upload_url: "<?php echo $upload_url; ?>",
-                post_params: {},
-                use_query_string: false,
-                file_post_name: "file",
-                file_size_limit : "20 MB",
-                file_types : "*.png;*.jpg;*.jpeg;*.gif;*.mp3",
-                file_types_description: "Web Image Files",
-                file_upload_limit : 100,
-                file_queue_limit : 0,
-                custom_settings : {
-                    fileUniqIdMapping : {},
-                    progressTarget : "fsUploadProgress",
-                    cancelButtonId : "btnCancel"
-                },
-                debug: false,
+$(function() 
+{
+ $('#upload_btn').uploadify({
+    'debug'   : false,
 
-                // Button Settings
-                button_image_url : "<?php echo base_url('bootstrap/assets/images/XPButtonUploadText_61x22.png'); ?>",
-                button_placeholder_id : "spanButtonPlaceholder1",
-                button_width: 61,
-                button_height: 22,
+    'swf'   : '<?php echo site_url() ?>res/uploadify.swf',
+    'uploader'  : 'http://up.qiniu.com/',
+    'cancelImage' : '<?php echo site_url() ?>res/uploadify-cancel.png',
+    'queueID'  : 'file-queue',
+    'buttonClass'  : 'button',
+    'buttonText' : "Upload Files",
+    'multi'   : false,
+    'auto'   : true,
 
-                // The event handler functions are defined in handlers.js
-                file_queued_handler : fileQueued,
-                file_queue_error_handler : fileQueueError,
-                file_dialog_complete_handler : fileDialogComplete,
-                upload_start_handler : uploadStart,
-                upload_progress_handler : uploadProgress,
-                upload_error_handler : uploadError,
-                upload_success_handler : uploadSuccess,
-                upload_complete_handler : uploadComplete,
-                queue_complete_handler : queueComplete  // Queue plugin event
-        };
-        swfu = new SWFUpload(settings);
-        };
-    </script>
-    <script type="text/javascript">
-    var $bucket = '<?php echo $bucket; ?>';
-    var $upToken = '<?php echo $upToken;?>';
+    'fileTypeExts' : '*.jpg; *.png; *.gif; *.PNG; *.JPG; *.GIF;',
+    'fileTypeDesc' : 'Image Files',
+
+    'method'  : 'post',
+    'fileObjName' : 'file',
+    'formData'  : {'token' : '<?php echo $upToken;?>'},
+
+    'queueSizeLimit': 40,
+    'simUploadLimit': 1,
+    'sizeLimit'  : 10240000,
+    'onUploadSuccess' : function(file, data, response) {   
+      var objs=JSON.parse(data);
+      var postData = {
+        "action": "insert",
+        "file_key": objs.hash
+      };
+      // 通过AJAX异步向网站业务服务器POST数据
+      $.ajax({
+        type: "POST",
+        url: '<?php echo $callback_path ?>',
+        processData: true,
+        data: postData,
+        dataType: "json",
+        beforeSend: function(){},
+        complete: function(xhr, textStatus){
+          if((xhr.readyState ==4) && (xhr.status ==200))
+          {
+            console.log(xhr.responseText);
+            var obj=JSON.parse(xhr.responseText);
+            if($('#pic_list1 li').length >0)
+            {
+             del1();
+            }
+            myform.sum_picture_fkey.value=objs.hash;
+            myform.sum_picture_fname。value=objs.name;
+            $("#pic_list1 li").remove();
+            $("#pic_list1").prepend( "<li id='li'><a href='" + obj.preview + "'>"+objs.name+"</a><img class='button' src='../../bootstrap/assets/images/fancy_close.png'>"+
+            "<input id='"+objs.hash+"' name='fkey' type=\"hidden\" value='"+objs.hash+"''></li>");      
+            $("#pic_list1 li").bind("click",del1);    
+          }
+        },
+        success:function(resp){
+        }
+      });   
+    }, 
+    'onComplete': function(event,queueID,fileObj,response,data) { 
+      alert("sdfasdfas");
+    },
+    'onError'          : function(event, queueID, fileObj)  
+    {   
+      alert("文件:" + fileObj.name + " 上传失败");   
+    }
+  });
+ });
+
 </script>
 <script>
         var editor,editor2;
@@ -116,19 +170,11 @@
         <tr>  
             <td>上传心经文件</td>  
             <td>
-                <form id="form1" action="index.php" method="post" enctype="multipart/form-data">
-                <div class="fieldset flash" id="fsUploadProgress">
-                </div>
-  
-                <div style="padding-left: 5px;">
-                <span id="spanButtonPlaceholder1"></span>
-                <input id="btnCancel" type="button" value="Cancel All Uploads" onclick="swfu.cancelQueue();" disabled="disabled" style="margin-left: 2px; height: 22px; font-size: 8pt;" />
-                </div>
-                                <div id="divMsg1"></div>
-                <div id="thumbnails1">
+                <table role="presentation" class="table table-striped">
                     <ul id="pic_list1" style="margin:5px;"></ul>
-                </div>
-                </form>
+                 </table>
+                <div class="uploadify-queue" id="file-queue"></div>
+                <input type="file" name="file" id="upload_btn" />    
             </td>  
         </tr>
         <tr>  
