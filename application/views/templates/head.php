@@ -10,6 +10,7 @@
     <link href="<?php echo base_url('bootstrap/css/layout.css'); ?>" rel="stylesheet">
     <script charset="utf-8" src="<?php echo base_url('bootstrap/editor/kindeditor.js'); ?>"></script>
     <script charset="utf-8" src="<?php echo base_url('bootstrap/editor/lang/zh_CN.js'); ?>"></script>
+    <script charset="utf-8" language="javascript" type="text/javascript" src="<?php echo base_url('bootstrap/My97DatePicker/WdatePicker.js'); ?>" ></script>
 </head>
 <body>
 <div id="container">

@@ -92,6 +92,10 @@
             </td>  
         </tr>
         <tr>  
+            <td><label class="control-label" for="input01">发布时间</label></td>  
+            <td><input type="input" name="zx_create"  onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})" /></td>  
+        </tr> 
+        <tr>  
             <td></td>  
             <td><input type="button" name="getText" class="btn" value="创建"></td>  
         </tr>  
