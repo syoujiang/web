@@ -9,6 +9,7 @@ class Uploadtest extends CI_Controller {
 	   $this->load->library(array('session', 'encrypt'));
 	   $this->load->helper('url');
 	   $this->load->model('news_model');
+	   $this->load->model('huodong_model');
 		$this->load->library('qbox');
 	}
 
@@ -144,6 +145,20 @@ class Uploadtest extends CI_Controller {
 	            die(json_encode(array(	"code" => 200,
 						"data" => array("success" => true))));
 		    	break;
+		    case 'getpic':
+		    	$id = isset($_POST["id"]) ? trim($_POST["id"]) : "";
+		    	log_message('error','$id'.$id);
+		    	$resPic=$this->huodong_model->getPic($id);
+		    	$content_count = count($resPic);
+
+				for ($i=0; $i <$content_count ; $i++) { 
+					$resPic[$i]['id']=$this->qbox->GetDownloadURL($resPic[$i]['file_key']);
+					//log_message('error','message '.$resPic[$i]['id']);
+				}
+				$string = json_encode(array("code" => 200,"data" =>$resPic));
+			//	log_message('error','string'.$string);
+	            die($string );
+
 		    # 如果是未知操作，返回错误
 		    default:
 		        $resp = json_encode(array("code" => 400, "data" => array("errmsg" => "Invalid URL, Unknow <action>: $act")));

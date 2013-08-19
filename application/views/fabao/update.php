@@ -289,12 +289,12 @@ $(function()
     echo form_open('fabao/commit/update',$attributes);
 	echo form_hidden('news_id',$news_id); 
 ?>
-    <input type="hidden" name="sum_picture_id" value="<?php echo $summary_url ?>">
-    <input type="hidden" name="sum_picture_fkey" value="<?php echo $summary_fkey ?>">
-    <input type="hidden" name="sum_picture_fname" value="<?php echo $summary_fname ?>">
-    <input type="hidden" name="con_picture_id" value="<?php echo $lb_url ?>">
-    <input type="hidden" name="con_picture_fkey" value="<?php echo $lb_fkey ?>">
-    <input type="hidden" name="con_picture_fname" value="<?php echo $lb_fname ?>">
+    <input type="hidden" name="sum_picture_id" value="">
+    <input type="hidden" name="sum_picture_fkey" value="">
+    <input type="hidden" name="sum_picture_fname" value="">
+    <input type="hidden" name="con_picture_id" value="">
+    <input type="hidden" name="con_picture_fkey" value="">
+    <input type="hidden" name="con_picture_fname" value="">
     <input type="hidden" name="zx_content_phone" value="">
     <div class="container-fluid">
         <legend>更新法宝</legend>

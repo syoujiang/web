@@ -27,6 +27,7 @@ class Gonggao extends REST_Controller
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->load->model('gonggao_model');
+        $this->load->model('fabao_model');
         $this->load->model('user_model');
         $this->load->database();
         $this->load->helper('url');
@@ -38,7 +39,7 @@ class Gonggao extends REST_Controller
         // 法宝分类
         $this->output->enable_profiler(TRUE);
        // $types=$this->fabao_model->get_all_fabao_type();
-        $types=$this->gonggao_model->get_tuijian_type();
+        $types=$this->fabao_model->get_tuijian_type();
         $lunbo=$this->gonggao_model->get_lunbo_api();
         $sendmsg = array('bucket' => "hhs",
                         'lunbotu' => $lunbo,

@@ -23,7 +23,8 @@ class Gonggao_model extends CI_Model {
 		'qq' => $this->input->post('qq'),
 		'zhuchi' => $this->input->post('zhuchi'),
 		'renyuan' => $this->input->post('renyuan'),
-		'c_date' => date('Y-m-d H:i:s')
+		'c_date' => date('Y-m-d H:i:s'),
+		'gg_push' => $this->input->post('zx_create')
 		);
 		$this->db->insert('hhs_gonggao', $data);
 		// echo  $this->db->last_query();
@@ -63,7 +64,8 @@ class Gonggao_model extends CI_Model {
 		'qq' => $this->input->post('qq'),
 		'zhuchi' => $this->input->post('zhuchi'),
 		'renyuan' => $this->input->post('renyuan'),
-		'c_date' => date('Y-m-d H:i:s')
+		'c_date' => date('Y-m-d H:i:s'),
+		'gg_push' => $this->input->post('zx_create')
 		);
 		$this->db->where('id',$id);
 		$this->db->update('hhs_gonggao', $data);

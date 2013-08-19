@@ -87,7 +87,7 @@ public function __construct()
 		$i=0;
 		foreach ($arraypicfkey as $key) {
 			# code...
-			$arraypicurl[$i]= $this->qbox->GetPictureURL($key['file_key'],$key['file_name']);
+			$arraypicurl[$i]= $this->qbox->GetDownloadURL($key['file_key']);
 			$i++;
 			///echo $arraypicurl['url']."<br>";
 		}
@@ -115,7 +115,7 @@ public function __construct()
 		$i=0;
 		foreach ($arraypicfkey as $key) {
 			# code...
-			$arraypicurl[$i]['url']= $this->qbox->GetPictureURL($key['file_key'],$key['file_name']);
+			$arraypicurl[$i]['url']= $this->qbox->GetDownloadURL($key['file_key']);
 			$arraypicurl[$i]['key']=$key['file_key'];
 			$i++;
 			///echo $arraypicurl['url']."<br>";

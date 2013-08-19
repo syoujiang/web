@@ -1,4 +1,204 @@
+<link rel="stylesheet" type="text/css" href="<?php echo site_url() ?>res/uploadify.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?php echo site_url() ?>res/jquery.uploadify.min.js"></script>
+<script type='text/javascript' >
+function del2(type) {   
+  var myVal;
+  if(type==0)
+  {
+    $("#pic_list1 > li>input").each(function(){
+      // alert(this.value);
+      myVal = this.value;
+    }) 
+  }
+  else
+  {
+    $("#pic_list2 > li>input").each(function(){
+      // alert(this.value);
+      myVal = this.value;
+    }) 
+  }
+  var postData = {
+    "action": "delete",
+    "file_key": myVal
+  };
+  // 通过AJAX异步向网站业务服务器POST数据
+  $.ajax({
+      type: "POST",
+      url: '<?php echo $callback_path ?>',
+      processData: true,
+      data: postData,
+      dataType: "json",
+      beforeSend: function(){},
+      complete: function(xhr, textStatus){
+          if(xhr.readyState ==4)
+          {
+              if(xhr.status ==200)
+              {
+                if(type==0)
+                {
+                  $("#pic_list1 li").remove();
+                  myform.sum_picture_fkey.value="";
+                }
+                else
+                {
+                  $("#pic_list2 li").remove();
+                  myform.con_picture_fkey.value="";
+                }
+              }
+          }
+      },
+      success:function(resp){
+      }
+  });   
+  $(this).remove();      
+} 
 
+
+
+
+
+$(function() 
+{
+ $('#upload_btn').uploadify({
+    'debug'   : false,
+
+    'swf'   : '<?php echo site_url() ?>res/uploadify.swf',
+    'uploader'  : 'http://up.qiniu.com/',
+    'cancelImage' : '<?php echo site_url() ?>res/uploadify-cancel.png',
+    'queueID'  : 'file-queue',
+    'buttonClass'  : 'button',
+    'buttonText' : "Upload Files",
+    'multi'   : false,
+    'auto'   : true,
+
+    'fileTypeExts' : '*.jpg; *.png; *.gif; *.PNG; *.JPG; *.GIF;',
+    'fileTypeDesc' : 'Image Files',
+
+    'method'  : 'post',
+    'fileObjName' : 'file',
+    'formData'  : {'token' : '<?php echo $upToken;?>'},
+
+    'queueSizeLimit': 40,
+    'simUploadLimit': 1,
+    'sizeLimit'  : 10240000,
+    'onUploadSuccess' : function(file, data, response) {   
+      var objs=JSON.parse(data);
+      var postData = {
+        "action": "insert",
+        "file_key": objs.hash
+      };
+      // 通过AJAX异步向网站业务服务器POST数据
+      $.ajax({
+        type: "POST",
+        url: '<?php echo $callback_path ?>',
+        processData: true,
+        data: postData,
+        dataType: "json",
+        beforeSend: function(){},
+        complete: function(xhr, textStatus){
+          if((xhr.readyState ==4) && (xhr.status ==200))
+          {
+            console.log(xhr.responseText);
+            var obj=JSON.parse(xhr.responseText);
+            if($('#pic_list1 li').length >0)
+            {
+             del2("0");
+            }
+            myform.sum_picture_fkey.value=objs.hash;
+            $("#pic_list1 li").remove();
+            $("#pic_list1").append( "<li id='li'><img class='content'  src='" + obj.preview + "'><img class='button' src='../../bootstrap/assets/images/fancy_close.png'>"+
+            "<input id='"+objs.hash+"' name='fkey' type=\"hidden\" value='"+objs.hash+"''></li>");      
+            $("#pic_list1 li").live("click",function()
+            {
+              del2("0");
+            });   
+          }
+        },
+        success:function(resp){
+        }
+      });   
+    }, 
+    'onComplete': function(event,queueID,fileObj,response,data) { 
+      alert("sdfasdfas");
+    },
+    'onError'          : function(event, queueID, fileObj)  
+    {   
+      alert("文件:" + fileObj.name + " 上传失败");   
+    }
+  });
+ });
+$(function() 
+{
+ $('#upload_btn2').uploadify({
+    'debug'   : false,
+
+    'swf'   : '<?php echo site_url() ?>res/uploadify.swf',
+    'uploader'  : 'http://up.qiniu.com/',
+    'cancelImage' : '<?php echo site_url() ?>res/uploadify-cancel.png',
+    'queueID'  : 'file-queue2',
+    'buttonClass'  : 'button',
+    'buttonText' : "Upload Files",
+    'multi'   : false,
+    'auto'   : true,
+
+    'fileTypeExts' : '*.jpg; *.png; *.gif; *.PNG; *.JPG; *.GIF;',
+    'fileTypeDesc' : 'Image Files',
+
+    'method'  : 'post',
+    'fileObjName' : 'file',
+    'formData'  : {'token' : '<?php echo $upToken;?>'},
+
+    'queueSizeLimit': 40,
+    'simUploadLimit': 1,
+    'sizeLimit'  : 10240000,
+    'onUploadSuccess' : function(file, data, response) {   
+      var objs=JSON.parse(data);
+      var postData = {
+        "action": "insert",
+        "file_key": objs.hash
+      };
+      // 通过AJAX异步向网站业务服务器POST数据
+      $.ajax({
+        type: "POST",
+        url: '<?php echo $callback_path ?>',
+        processData: true,
+        data: postData,
+        dataType: "json",
+        beforeSend: function(){},
+        complete: function(xhr, textStatus){
+          if((xhr.readyState ==4) && (xhr.status ==200))
+          {
+            console.log(xhr.responseText);
+            var obj=JSON.parse(xhr.responseText);
+            if($('#pic_list2 li').length >0)
+            {
+             del2("1");
+            }
+            myform.con_picture_fkey.value=objs.hash;
+            $("#pic_list2 li").remove();
+            $("#pic_list2").append( "<li id='li'><img class='content'  src='" + obj.preview + "'><img class='button' src='../../bootstrap/assets/images/fancy_close.png'>"+
+            "<input id='"+objs.hash+"' name='fkey' type=\"hidden\" value='"+objs.hash+"''></li>");      
+            $("#pic_list2 li").live("click",function()
+            {
+              del2("1");
+            });   
+          }
+        },
+        success:function(resp){
+        }
+      });   
+    }, 
+    'onComplete': function(event,queueID,fileObj,response,data) { 
+      alert("sdfasdfas");
+    },
+    'onError'          : function(event, queueID, fileObj)  
+    {   
+      alert("文件:" + fileObj.name + " 上传失败");   
+    }
+  });
+ });
+</script>
 <script>
         var editor,editor2;
         KindEditor.ready(function(K) {

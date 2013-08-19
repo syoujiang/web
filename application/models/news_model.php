@@ -41,6 +41,7 @@ class news_model extends CI_Model
 	}
 	public function get_news_limit_api($type_id,$id,$direct,$limit)
 	{
+		$now_data=date('Y-m-d H:i:s',time());
 		if($direct == 'down')
 		{
 			$this->db->where('id <', $id); 
@@ -58,12 +59,13 @@ class news_model extends CI_Model
 				$offset=$uprow-10;
 				$sql = "Select id, zx_title, zx_type,zx_summary,summary_url,summary_fkey,summary_fname,".
 				"(@rowNum:=@rowNum+1) as rowNo From hhs_news,(Select (@rowNum :=0) ) b ".
-				"where hhs_news.id>'$id' Order by hhs_news.id Desc LIMIT $offset,10";
+				"where hhs_news.id>'$id' and zx_create < '$now_data' Order by hhs_news.id Desc LIMIT $offset,10";
 				$query = $this->db->query($sql);
 				return $query->result_array();
 			}
 			elseif ($uprow <= 10 && $uprow > 0) 
 			{
+				$this->db->where('zx_create <',$now_data);
 				$this->db->where('id >', $id); 
 				$this->db->order_by("id", "desc");
 				$this->db->select('id, zx_title, zx_type,zx_summary,summary_url,summary_fkey,summary_fname');
@@ -78,6 +80,7 @@ class news_model extends CI_Model
 		}
 		else
 		{
+			$this->db->where('zx_create <',$now_data);
 			$this->db->order_by("id", "desc");
 			$this->db->select('id, zx_title, zx_type,zx_summary,summary_url,summary_fkey,summary_fname');
 			$query = $this->db->get_where('hhs_news',array('zx_type' => $type_id),$limit);
