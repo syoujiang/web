@@ -19,7 +19,7 @@ class Uploadtest extends CI_Controller {
 		$token['fileprev']="11";
 		$this->load->view('upload_form',$token);
 	}
-		function urlsafe_base64_decode($string) {
+	function urlsafe_base64_decode($string) {
 
 		$data = str_replace(array('-','_'), array('+','/'), $string);
 		$mod4 = strlen($data) % 4;
@@ -117,6 +117,7 @@ class Uploadtest extends CI_Controller {
 		    case "show_huodong":
 		   		$previewURL1="";
 		   		$previewURL2="";
+		   		$resPic="";
 		        $filekey1 = isset($_POST["file1_key"]) ? trim($_POST["file1_key"]) : "";
 				$filekey2 = isset($_POST["file2_key"]) ? trim($_POST["file2_key"]) : "";
 				$id = isset($_POST["id"]) ? trim($_POST["id"]) : "";
@@ -166,7 +167,9 @@ class Uploadtest extends CI_Controller {
 						// $this->load->model('news_model');
 						$this->news_model->delete_news_fkey($id,$type);
 						break;
-					
+					case 'hhs_huodong':
+						$this->huodong_model->delPic($filekey);
+						break;
 					default:
 						# code...
 						break;

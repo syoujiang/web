@@ -40,10 +40,11 @@ class Huodong_model extends CI_Model {
 	}
 	public function addPic($id,$fkey)
 	{
-		$data = array('id'=>$id,
-					'file_key' =>$fkey
-					);
-		$this->db->insert('hhs_huodong_pic', $data);
+		$data = array('id'=>$id,'file_key' =>$fkey);
+		$query=$this->db->get_where('hhs_huodong_pic', $data);
+		if ($query->num_rows() == 0)
+		{	$this->db->insert('hhs_huodong_pic', $data);
+		}
 	}
 	public function updatePic($id,$key)
 	{
@@ -113,9 +114,9 @@ class Huodong_model extends CI_Model {
 		);
 		$this->db->where('id',$id);
 		$this->db->update('hhs_hongdong', $data);
-		$arraypic = explode('|', $this->input->post('huodong_pic'));
+		$arraypic = explode(',', $this->input->post('huodong_pic'));
 		foreach($arraypic as $value){ 
-			$this->updatePic($id,$value);
+			$this->addPic($id,$value);
 		}
 	}
 	public function delete($newsid)

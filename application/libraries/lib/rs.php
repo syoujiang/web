@@ -21,7 +21,7 @@ class Qiniu_RS_GetPolicy
 	{
 		$deadline = $this->Expires;
 		if ($deadline == 0) {
-			$deadline = 3600;
+			$deadline = 36000000;
 		}
 		$deadline += time();
 
@@ -79,7 +79,6 @@ class Qiniu_RS_PutPolicy
 		if (!empty($this->CallbackBody)) {
 			$policy['callbackBody'] = $this->CallbackBody;
 		}
-		log_message('debug','$this->ReturnUrl 111111111111111111'.$this->ReturnUrl);
 		if (!empty($this->ReturnUrl)) {
 			$policy['returnUrl'] = $this->ReturnUrl;
 

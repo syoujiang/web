@@ -22,30 +22,30 @@ window.onload=function(){
         }
     }
  
-    $("form1").onsubmit=function(){
-        for(var i=0; i<len;i++){
-            var o = inputs[i];
-            if(o.checked){
-                pan=1;
-                break;
-            }else{
-                pan=0;
-            }
-        }
+    // $("form1").onsubmit=function(){
+    //     for(var i=0; i<len;i++){
+    //         var o = inputs[i];
+    //         if(o.checked){
+    //             pan=1;
+    //             break;
+    //         }else{
+    //             pan=0;
+    //         }
+    //     }
  
-        if(!pan){
-            alert("请选择");
-            return false;
-        }else{
-            conf=confirm("确定删除");
-        }
+    //     if(!pan){
+    //         alert("请选择");
+    //         return false;
+    //     }else{
+    //         conf=confirm("确定删除");
+    //     }
  
-        if(conf){
-            return true;
-            }else{
-                return false;
-                }
-    }
+    //     if(conf){
+    //         return true;
+    //         }else{
+    //             return false;
+    //             }
+    // }
 }
 function submitForm(){
     var boxes = document.getElementsByName("range[]");  
@@ -94,7 +94,6 @@ function searchForm(){
 <th>类别</th>
 <th>数量</th>
 <th>日期</th>
-<th>预览</th>
 
 </tr>
 	<?php $index_id=1; ?>
@@ -106,13 +105,12 @@ function searchForm(){
 	   <?php echo form_checkbox('range[]', $news_item['id']); ?>
 	   </label>
     </td>
-	<td><?php echo anchor('fotang/update/'.$news_item['id'],$index_id); $index_id++;?></td>
+	<td><?php echo $index_id; $index_id++;?></td>
 	<td><?php echo mb_substr($news_item['name'],0,10); ?></td>
 	<td><?php echo $news_item['gongke_type'] ?></td>
 	<td><?php echo $news_item['number'];?></td>
 	<td><?php echo $news_item['riqi'] ?></td>
-	<td><?php echo anchor_popup('fabao/show/'.$news_item['id'],'预览'); ?></td>
-	
+
 	</tr>
 <?php endforeach ?>
 </tbody>

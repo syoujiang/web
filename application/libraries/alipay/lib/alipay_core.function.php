@@ -64,7 +64,6 @@ function paraFilter($para) {
  * return 排序后的数组
  */
 function argSort($para) {
-	log_message('error','para'.var_dump($para));
 	ksort($para);
 	reset($para);
 	return $para;

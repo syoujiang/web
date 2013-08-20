@@ -22,30 +22,30 @@ window.onload=function(){
         }
     }
  
-    $("form1").onsubmit=function(){
-        for(var i=0; i<len;i++){
-            var o = inputs[i];
-            if(o.checked){
-                pan=1;
-                break;
-            }else{
-                pan=0;
-            }
-        }
+    // $("form1").onsubmit=function(){
+    //     for(var i=0; i<len;i++){
+    //         var o = inputs[i];
+    //         if(o.checked){
+    //             pan=1;
+    //             break;
+    //         }else{
+    //             pan=0;
+    //         }
+    //     }
  
-        if(!pan){
-            alert("请选择");
-            return false;
-        }else{
-            conf=confirm("确定删除");
-        }
+    //     if(!pan){
+    //         alert("请选择");
+    //         return false;
+    //     }else{
+    //         conf=confirm("确定删除");
+    //     }
  
-        if(conf){
-            return true;
-            }else{
-                return false;
-                }
-    }
+    //     if(conf){
+    //         return true;
+    //         }else{
+    //             return false;
+    //             }
+    // }
 }
 function submitForm(){
     var boxes = document.getElementsByName("range[]");  

@@ -1,8 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Huodong extends CI_Controller {
-
-public function __construct()
+    
+    private $upload_format="*.xls;*.doc;*docs;*.xlsx;";
+    private $upload_format2="*.jpg; *.png; *.gif; *.PNG; *.JPG; *.GIF;";
+	public function __construct()
 	{
 		parent::__construct();
 		$this->load->helper('form');
@@ -56,6 +58,8 @@ public function __construct()
 			$data['base'] = $this->config->item('base_url');
 			$data['callback_path'] = base_url('uploadtest/callback');
 			$data['upToken'] = $this->qbox->GetUploadURL();
+			$data['upload_format'] = $this->upload_format;
+			$data['upload_format2'] = $this->upload_format2;
 			$this->load->view('templates/head', $data); 
 			$this->load->view('templates/menu');
 			$this->load->view('templates/left',$data); 
@@ -103,13 +107,14 @@ public function __construct()
 		$this->load->library('qbox');
 		$id=$this->uri->segment(3);
 		$data=$this->huodong_model->getOne($id);
-		$data['gonggao'] = $this->huodong_model->get2();
+		$data['gonggao'] = $this->huodong_model->get3($id);
 		$data['base'] = $this->config->item('base_url');
 		$data['callback_path'] = base_url('uploadtest/callback');
 		$data['upToken'] = $this->qbox->GetUploadURL();
 		$data['news_id'] = $id;
 		$data['arrayleft'] = $this->sidebar;
-		
+		$data['upload_format'] = $this->upload_format;
+		$data['upload_format2'] = $this->upload_format2;
 		$arraypicfkey = $this->huodong_model->getPic($id);
 		$arraypicurl = array();
 		$i=0;
@@ -121,6 +126,7 @@ public function __construct()
 			///echo $arraypicurl['url']."<br>";
 		}
 		$data['pic']=$arraypicurl;
+
 		$this->load->view('templates/head', $data);  
 		$this->load->view('templates/menu');
 		$this->load->view('templates/left',$data); 

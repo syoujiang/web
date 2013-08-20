@@ -90,7 +90,7 @@ $(function()
     'multi'   : false,
     'auto'   : true,
 
-    'fileTypeExts' : '*.xls;*.doc;*docs;*.xlsx;',
+    'fileTypeExts' : '<?php echo $upload_format ?>',
     'fileTypeDesc' : 'Image Files',
 
     'method'  : 'post',
@@ -124,6 +124,7 @@ $(function()
              del1("0",0);
             }
             myform.sum_picture_fkey.value=objs.hash;
+            myform.sum_picture_fname.value=objs.name;
             $("#pic_list1 li").remove();
             $("#pic_list1").prepend( "<li id='li'><a href='" + obj.preview + "'>"+objs.name+"</a><img class='button' src='../../bootstrap/assets/images/fancy_close.png'>"+
             "<input id='"+objs.hash+"' name='fkey' type=\"hidden\" value='"+objs.hash+"''></li>");      
@@ -160,7 +161,7 @@ $(function()
     'multi'   : false,
     'auto'   : true,
 
-    'fileTypeExts' : '*.xls;*.doc;*docs;*.xlsx;',
+    'fileTypeExts' : '<?php echo $upload_format ?>',
     'fileTypeDesc' : 'Image Files',
 
     'method'  : 'post',
@@ -194,6 +195,7 @@ $(function()
              del1("1",0);
             }
             myform.con_picture_fkey.value=objs.hash;
+             myform.con_picture_fname.value=objs.name;
             $("#pic_list2 li").remove();
             $("#pic_list2").prepend( "<li id='li'><a href='" + obj.preview + "'>"+objs.name+"</a><img class='button' src='../../bootstrap/assets/images/fancy_close.png'>"+
             "<input id='"+objs.hash+"' name='fkey' type=\"hidden\" value='"+objs.hash+"''></li>");      
@@ -232,7 +234,7 @@ $(function()
     'multi'   : false,
     'auto'   : true,
 
-    'fileTypeExts' : '*.jpg; *.png; *.gif; *.PNG; *.JPG; *.GIF;',
+    'fileTypeExts' : '<?php echo $upload_format2 ?>',
     'fileTypeDesc' : 'Image Files',
 
     'method'  : 'post',
@@ -339,7 +341,7 @@ $(function()
             //             groupTypeId += this.value+"|";  
             //         })
             //         myform.huodong_pic.value =(groupTypeId); 
-                   alert(myform.huodong_pic.value);
+              //     alert(myform.huodong_pic.value);
                     myform.submit();
                 });
         });
