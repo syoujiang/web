@@ -9,7 +9,8 @@ class Huodong_model extends CI_Model {
 	}
 	public function create()
 	{
-		$arraypic = explode('|', $this->input->post('huodong_pic'));	
+		log_message('error','huodong_pic. '.$this->input->post('huodong_pic'));
+		$arraypic = explode(',', $this->input->post('huodong_pic'));	
 		$tmp=$this->input->post('mingxi_phone');
 		$tmp =preg_replace("/\s/","",$tmp);
 		$tmp2=$this->input->post('gongde_phone');
@@ -32,10 +33,17 @@ class Huodong_model extends CI_Model {
 		$this->db->insert('hhs_hongdong', $data);
 		$lastInsertId = $this->db->insert_id();
 		foreach($arraypic as $value){ 
-			$this->updatePic($lastInsertId,$value);
+			$this->addPic($lastInsertId,$value);
 		}
 		// echo  $this->db->last_query();
 		return;
+	}
+	public function addPic($id,$fkey)
+	{
+		$data = array('id'=>$id,
+					'file_key' =>$fkey
+					);
+		$this->db->insert('hhs_huodong_pic', $data);
 	}
 	public function updatePic($id,$key)
 	{

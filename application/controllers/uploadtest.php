@@ -114,6 +114,37 @@ class Uploadtest extends CI_Controller {
 	            						"preview2"=>$previewURL2, 
 	            						"data" => array("success" => true))));
 		        break;
+		    case "show_huodong":
+		   		$previewURL1="";
+		   		$previewURL2="";
+		        $filekey1 = isset($_POST["file1_key"]) ? trim($_POST["file1_key"]) : "";
+				$filekey2 = isset($_POST["file2_key"]) ? trim($_POST["file2_key"]) : "";
+				$id = isset($_POST["id"]) ? trim($_POST["id"]) : "";
+		        if($filekey1 != ""){
+		            $previewURL1 = $this->qbox->GetDownloadURL($filekey1);
+		        }
+		        if($filekey2 != ""){
+		            $previewURL2 = $this->qbox->GetDownloadURL($filekey2);
+		        }
+		       	if($id != ""){
+					$resPic=$this->huodong_model->getPic($id);
+					$content_count = count($resPic);
+
+					for ($i=0; $i <$content_count ; $i++) { 
+						$resPic[$i]['hash']=$resPic[$i]['file_key'];
+						$resPic[$i]['preview']=$this->qbox->GetDownloadURL($resPic[$i]['file_key']);
+						log_message('error','message '.$resPic[$i]['hash']." ".$resPic[$i]['preview']);
+					}
+		        }
+
+		        log_message('error','message show ('.$previewURL1.")(".$previewURL2.")");
+		        # 最后返回处理结果
+	            die(json_encode(array(	"code" => 200,
+	            						"preview1"=>$previewURL1, 
+	            						"preview2"=>$previewURL2, 
+	            						"pic" =>$resPic,
+	            						"data" => array("success" => true))));
+		        break;
 		    case 'delete':
 		    	# code...
 				$filekey = isset($_POST["file_key"]) ? trim($_POST["file_key"]) : "";

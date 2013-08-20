@@ -2,7 +2,16 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<?php echo site_url() ?>res/jquery.uploadify.min.js"></script>
 <script type='text/javascript' >
-var del1 = function (type) {   
+Array.prototype.remove = function(b) { 
+var a = this.indexOf(b); 
+if (a >= 0) { 
+this.splice(a, 1); 
+return true; 
+} 
+return false; 
+}; 
+var del1 = function (type,num) {   
+  var myVal;
   if(type==0)
   {
     $("#pic_list1 > li>input").each(function(){
@@ -10,9 +19,17 @@ var del1 = function (type) {
       myVal = this.value;
     }) 
   }
-  else
+  else if(type==1)
   {
     $("#pic_list2 > li>input").each(function(){
+      // alert(this.value);
+      myVal = this.value;
+    }) 
+  }
+  else
+  {
+      var list="#"+num+"> input";
+      $(list).each(function(){
       // alert(this.value);
       myVal = this.value;
     }) 
@@ -34,11 +51,22 @@ var del1 = function (type) {
           {
               if(xhr.status ==200)
               {
-                  myform.con_picture_id.value="";
+                if(type==0)
+                {
+                  $("#pic_list1 li").remove();
+                  myform.sum_picture_fkey.value="";
+                }
+                else if(type==1)
+                {
+                  $("#pic_list2 li").remove();
                   myform.con_picture_fkey.value="";
-                  myform.con_picture_fname.value="";
-                  $("#divMsg1").show();
-                  $("#divMsg1").html("删除成功！");
+                }
+                else
+                {
+                    picArray.remove(myVal);
+                    myform.huodong_pic.value=picArray;
+                    alert(myform.huodong_pic.value);
+                }
               }
           }
       },
@@ -62,7 +90,7 @@ $(function()
     'multi'   : false,
     'auto'   : true,
 
-    'fileTypeExts' : '*.xls;',
+    'fileTypeExts' : '*.xls;*.doc;*docs;*.xlsx;',
     'fileTypeDesc' : 'Image Files',
 
     'method'  : 'post',
@@ -93,15 +121,15 @@ $(function()
             var obj=JSON.parse(xhr.responseText);
             if($('#pic_list1 li').length >0)
             {
-             del1("0");
+             del1("0",0);
             }
             myform.sum_picture_fkey.value=objs.hash;
             $("#pic_list1 li").remove();
-            $("#pic_list1").prepend( "<li id='li'><img class='content'  src='" + obj.preview + "'><img class='button' src='../../bootstrap/assets/images/fancy_close.png'>"+
+            $("#pic_list1").prepend( "<li id='li'><a href='" + obj.preview + "'>"+objs.name+"</a><img class='button' src='../../bootstrap/assets/images/fancy_close.png'>"+
             "<input id='"+objs.hash+"' name='fkey' type=\"hidden\" value='"+objs.hash+"''></li>");      
-            $("#pic_list1 li").live("click",function()
+            $("#pic_list1 li"+m).live("click",function()
             {
-              del1("0");
+              del1("0",0);
             });     
           }
         },
@@ -132,7 +160,7 @@ $(function()
     'multi'   : false,
     'auto'   : true,
 
-    'fileTypeExts' : '*.xls;',
+    'fileTypeExts' : '*.xls;*.doc;*docs;*.xlsx;',
     'fileTypeDesc' : 'Image Files',
 
     'method'  : 'post',
@@ -163,15 +191,15 @@ $(function()
             var obj=JSON.parse(xhr.responseText);
             if($('#pic_list2 li').length >0)
             {
-             del1("1");
+             del1("1",0);
             }
             myform.con_picture_fkey.value=objs.hash;
             $("#pic_list2 li").remove();
-            $("#pic_list2").prepend( "<li id='li'><img class='content'  src='" + obj.preview + "'><img class='button' src='../../bootstrap/assets/images/fancy_close.png'>"+
+            $("#pic_list2").prepend( "<li id='li'><a href='" + obj.preview + "'>"+objs.name+"</a><img class='button' src='../../bootstrap/assets/images/fancy_close.png'>"+
             "<input id='"+objs.hash+"' name='fkey' type=\"hidden\" value='"+objs.hash+"''></li>");      
-            $("#pic_list2 li").live("click",function()
+            $("#pic_list2 li img").live("click",function()
             {
-              del1("1");
+              del1("1",0);
             });    
           }
         },
@@ -189,6 +217,7 @@ $(function()
   });
  });
 m=0;
+var picArray=new Array();
 $(function() 
 {
  $('#upload_btn3').uploadify({
@@ -235,14 +264,21 @@ $(function()
             if($('#pic_list3 li').length >9)
             {
              alert("上传最大数为10.")
+              return;
             }
-            myform.con_picture_fkey.value=objs.hash;
+            picArray.push(objs.hash);
+            myform.huodong_pic.value=picArray;
+            // alert(myform.huodong_pic.value);
             // $("#pic_list3 li").remove();
             $("#pic_list3").append( "<li id='li"+m+"'><img class='content'  src='" + obj.preview + "'><img class='button' src='../../bootstrap/assets/images/fancy_close.png'>"+
             "<input id='"+objs.hash+"' name='fkey' type=\"hidden\" value='"+objs.hash+"''></li>");      
-            $("#pic_list3 li").live("click",function()
+            $("#li"+m).live("click",function(e)
+            // $('#pic_list3 li').live('click',function()
             {
-              del1("3");
+              // alert("ddd");
+              //alert($(this).closest('li').attr("id"));
+              del1("3",$(this).closest('li').attr("id"));
+              $(this).closest('li').remove();
             });    
             m++; 
           }
@@ -298,12 +334,12 @@ $(function()
             K('input[name=getText]').click(function(e) {
                     myform.mingxi_phone.value=editor.text();
                     myform.gongde_phone.value=editor2.text();
-              //      alert(myform.gongde_phone.value);
-                    $('#pic_list3 li input').each(function(index,val){
-                        groupTypeId += this.value+"|";  
-                    })
-                    myform.huodong_pic.value =(groupTypeId); 
-            //        alert(myform.huodong_pic.value);
+            //   //      alert(myform.gongde_phone.value);
+            //         $('#pic_list3 li input').each(function(index,val){
+            //             groupTypeId += this.value+"|";  
+            //         })
+            //         myform.huodong_pic.value =(groupTypeId); 
+                   alert(myform.huodong_pic.value);
                     myform.submit();
                 });
         });

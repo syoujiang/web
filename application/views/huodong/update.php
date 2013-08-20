@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo site_url() ?>res/uploadify.css" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<?php echo site_url() ?>res/jquery.uploadify.min.js"></script>
-<script type='text/javascript' >
+<script type='text/javascript'>
 $(document).ready(function(){
   load();
 });
@@ -67,12 +67,11 @@ function load()
   var key2="<?php echo $gongde_fkey ?>";
   var key1name="<?php echo $mingxi_fname ?>";
   var key2name="<?php  echo $gongde_fname ?>";
-  if((key1!="") ||(key2!="")){
-
     var postData = {
-      "action": "show",
+      "action": "show_huodong",
       "file1_key": key1,
-      "file2_key": key2
+      "file2_key": key2,
+      "id": "<?php echo $id ?>"
     };
     // 通过AJAX异步向网站业务服务器POST数据
     $.ajax({
@@ -85,6 +84,7 @@ function load()
       complete: function(xhr, textStatus){
         if((xhr.readyState ==4) && (xhr.status ==200))
         {
+          // alert(xhr.responseText);
           var obj=JSON.parse(xhr.responseText);
           if(obj.preview1 != "")
           {
@@ -105,11 +105,32 @@ function load()
               {
                 del2("1");
               }); 
+          }
+          if(obj.pic != "")
+          {
+            for(var i=0;i<obj.pic.length;i++)
+            {
+              picArray.push(obj.pic[i].hash);
+              myform.huodong_pic.value=picArray;
+              // alert(myform.huodong_pic.value);
+              // $("#pic_list3 li").remove();
+             // alert(obj.pic[i].preview);
+              $("#pic_list3").append( "<li id='li"+m+"'><img class='content'  src='" + obj.pic[i].preview + "'><img class='button' src='../../bootstrap/assets/images/fancy_close.png'>"+
+              "<input id='"+obj.pic[i].hash+"' name='fkey' type=\"hidden\" value='"+obj.pic[i].hash+"''></li>");      
+              $("#li"+m).live("click",function(e)
+              // $('#pic_list3 li').live('click',function()
+              {
+             //   alert("ddd");
+                //alert($(this).closest('li').attr("id"));
+                del2("3",$(this).closest('li').attr("id"));
+                $(this).closest('li').remove();
+              });    
+              m++; 
+            }
           }   
         }
       }
     });  
-  }
 }
 
 
@@ -254,6 +275,89 @@ $(function()
     }
   });
  });
+
+m=0;
+var picArray=new Array();
+$(function() 
+{
+ $('#upload_btn3').uploadify({
+    'debug'   : false,
+
+    'swf'   : '<?php echo site_url() ?>res/uploadify.swf',
+    'uploader'  : 'http://up.qiniu.com/',
+    'cancelImage' : '<?php echo site_url() ?>res/uploadify-cancel.png',
+    'queueID'  : 'file-queue3',
+    'buttonClass'  : 'button',
+    'buttonText' : "Upload Files",
+    'multi'   : false,
+    'auto'   : true,
+
+    'fileTypeExts' : '*.jpg; *.png; *.gif; *.PNG; *.JPG; *.GIF;',
+    'fileTypeDesc' : 'Image Files',
+
+    'method'  : 'post',
+    'fileObjName' : 'file',
+    'formData'  : {'token' : '<?php echo $upToken;?>'},
+
+    'queueSizeLimit': 40,
+    'simUploadLimit': 1,
+    'sizeLimit'  : 10240000,
+    'onUploadSuccess' : function(file, data, response) {   
+      var objs=JSON.parse(data);
+      var postData = {
+        "action": "insert",
+        "file_key": objs.hash
+      };
+      // 通过AJAX异步向网站业务服务器POST数据
+      $.ajax({
+        type: "POST",
+        url: '<?php echo $callback_path ?>',
+        processData: true,
+        data: postData,
+        dataType: "json",
+        beforeSend: function(){},
+        complete: function(xhr, textStatus){
+          if((xhr.readyState ==4) && (xhr.status ==200))
+          {
+            console.log(xhr.responseText);
+            var obj=JSON.parse(xhr.responseText);
+            if($('#pic_list3 li').length >9)
+            {
+             alert("上传最大数为10.")
+              return;
+            }
+            picArray.push(objs.hash);
+            myform.huodong_pic.value=picArray;
+            alert(myform.huodong_pic.value);
+            // $("#pic_list3 li").remove();
+            $("#pic_list3").append( "<li id='li"+m+"'><img class='content'  src='" + obj.preview + "'><img class='button' src='../../bootstrap/assets/images/fancy_close.png'>"+
+            "<input id='"+objs.hash+"' name='fkey' type=\"hidden\" value='"+objs.hash+"''></li>");      
+            $("#li"+m).live("click",function(e)
+            // $('#pic_list3 li').live('click',function()
+            {
+              alert("ddd");
+              //alert($(this).closest('li').attr("id"));
+              del1("3",$(this).closest('li').attr("id"));
+              $(this).closest('li').remove();
+            });    
+            m++; 
+          }
+        },
+        success:function(resp){
+        }
+      });   
+    }, 
+    'onComplete': function(event,queueID,fileObj,response,data) { 
+      alert("sdfasdfas");
+    },
+    'onError'          : function(event, queueID, fileObj)  
+    {   
+      alert("文件:" + fileObj.name + " 上传失败");   
+    }
+  });
+ });
+
+
 </script>
 <script>
         var editor,editor2;
@@ -315,7 +419,7 @@ $(function()
                 complete: function(xhr, textStatus){
                     if((xhr.readyState ==4) &&(xhr.status ==200))
                     {
-                        alert(xhr.responseText);
+                      //  alert(xhr.responseText);
                         // var objs = JSON.parse(xhr.responseText);
                         // for(var i=0;i<objs.data.length;i++)
                         // {
@@ -408,7 +512,7 @@ $(function()
         </tr>
         <tr>  
             <td></td>  
-            <td><input type="button" name="getText" class="btn" value="创建"></td>  
+            <td><input type="button" name="getText" class="btn" value="修改"></td>  
         </tr>  
         </tbody>  
         </table>    
