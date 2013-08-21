@@ -10065,3 +10065,36 @@ DEBUG - 2013-08-20 20:22:36 --> UTF-8 Support Enabled
 DEBUG - 2013-08-20 20:22:36 --> URI Class Initialized
 DEBUG - 2013-08-20 20:22:36 --> Router Class Initialized
 ERROR - 2013-08-20 20:22:36 --> 404 Page Not Found --> favicon.ico
+DEBUG - 2013-08-20 20:32:43 --> Config Class Initialized
+DEBUG - 2013-08-20 20:32:43 --> Hooks Class Initialized
+DEBUG - 2013-08-20 20:32:43 --> Utf8 Class Initialized
+DEBUG - 2013-08-20 20:32:43 --> UTF-8 Support Enabled
+DEBUG - 2013-08-20 20:32:43 --> URI Class Initialized
+DEBUG - 2013-08-20 20:32:43 --> Router Class Initialized
+DEBUG - 2013-08-20 20:32:43 --> Output Class Initialized
+DEBUG - 2013-08-20 20:32:43 --> Security Class Initialized
+DEBUG - 2013-08-20 20:32:43 --> Input Class Initialized
+DEBUG - 2013-08-20 20:32:43 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-08-20 20:32:43 --> Language Class Initialized
+DEBUG - 2013-08-20 20:32:43 --> Loader Class Initialized
+DEBUG - 2013-08-20 20:32:43 --> Database Driver Class Initialized
+DEBUG - 2013-08-20 20:32:43 --> Controller Class Initialized
+DEBUG - 2013-08-20 20:32:43 --> Helper loaded: form_helper
+DEBUG - 2013-08-20 20:32:43 --> Form Validation Class Initialized
+DEBUG - 2013-08-20 20:32:43 --> Model Class Initialized
+DEBUG - 2013-08-20 20:32:43 --> Helper loaded: url_helper
+DEBUG - 2013-08-20 20:32:43 --> Helper loaded: text_helper
+DEBUG - 2013-08-20 20:32:43 --> File loaded: application/views/templates/head.php
+DEBUG - 2013-08-20 20:32:43 --> File loaded: application/views/templates/menu.php
+DEBUG - 2013-08-20 20:32:43 --> File loaded: application/views/templates/left.php
+DEBUG - 2013-08-20 20:32:43 --> File loaded: application/views/news/index.php
+DEBUG - 2013-08-20 20:32:43 --> File loaded: application/views/templates/footer.php
+DEBUG - 2013-08-20 20:32:43 --> Final output sent to browser
+DEBUG - 2013-08-20 20:32:43 --> Total execution time: 0.0592
+DEBUG - 2013-08-20 20:32:44 --> Config Class Initialized
+DEBUG - 2013-08-20 20:32:44 --> Hooks Class Initialized
+DEBUG - 2013-08-20 20:32:44 --> Utf8 Class Initialized
+DEBUG - 2013-08-20 20:32:44 --> UTF-8 Support Enabled
+DEBUG - 2013-08-20 20:32:44 --> URI Class Initialized
+DEBUG - 2013-08-20 20:32:44 --> Router Class Initialized
+ERROR - 2013-08-20 20:32:44 --> 404 Page Not Found --> favicon.ico

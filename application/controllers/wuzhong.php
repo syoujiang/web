@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Wuzhong extends CI_Controller {
-	
+	private $upload_format2="*.jpg; *.png; *.gif; *.PNG; *.JPG; *.GIF;";
 	public function __construct()
 	{
 		parent::__construct();
@@ -54,6 +54,7 @@ class Wuzhong extends CI_Controller {
 			$data['base'] = $this->config->item('base_url');
 			$data['callback_path'] = base_url('uploadtest/callback');
 			$data['upToken'] = $this->qbox->GetUploadURL();
+			$data['upload_format2'] = $this->upload_format2;
 			$this->load->view('templates/head', $data); 
 			$this->load->view('templates/menu');
 			$this->load->view('templates/left',$data); 
@@ -93,6 +94,7 @@ class Wuzhong extends CI_Controller {
 		$data['upToken'] = $this->qbox->GetUploadURL();
 		$data['news_id'] = $id;
 		$data['arrayleft'] = $this->sidebar;
+		$data['upload_format2'] = $this->upload_format2;
 		$this->load->view('templates/head', $data);  
 		$this->load->view('templates/menu');
 		$this->load->view('templates/left',$data); 
