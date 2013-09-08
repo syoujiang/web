@@ -98,6 +98,13 @@ class Fabao_model extends CI_Model {
 		return true;
 		# code...
 	}
+	public function delete_order($newsid)
+	{
+		$this->db->query("DELETE FROM `hhs_order` WHERE `order_id` IN($newsid)");
+		// $this->delete_lunbo($newsid);
+		return true;
+		# code...
+	}
 	function getOneFabao($id)
 	{
 		return $this->db->get_where('hhs_fabao', array('id' => $id))->row_array();
@@ -170,11 +177,16 @@ class Fabao_model extends CI_Model {
 		$lbname= $this->input->post('lunbotu');
 		if($weight <5)
 		{
-			$data = array('fabao_id' => $this->input->post('lunbotu'),
-			'weight' => ($weight+1)
-			);
-			$this->db->insert('hhs_lunbo', $data);
-			return true;
+			if($this->input->post('lunbotu') >0)
+			{
+				$data = array('fabao_id' => $this->input->post('lunbotu'),
+				'weight' => ($weight+1)
+				);
+				$this->db->insert('hhs_lunbo', $data);
+				return true;
+			}
+			else
+				return false;
 		}
 		else
 		{
@@ -418,7 +430,7 @@ class Fabao_model extends CI_Model {
 	{
 		$order_data = array('status' => $this->input->post('shirts'));
 		$this->db->update('hhs_order',$order_data,array('order_id' =>$order_id));
-		echo  $this->db->last_query();
+		// echo  $this->db->last_query();
 	}
 	public function get_order_by_mail_api($mail)
 	{

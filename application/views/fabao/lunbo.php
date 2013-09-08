@@ -1,3 +1,6 @@
+<link rel="stylesheet" type="text/css" href="<?php echo site_url() ?>res/uploadify.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?php echo site_url() ?>res/jquery.uploadify.min.js"></script>
 <script type="text/javascript">
 function $(id){
 return document.getElementById(id);
@@ -68,9 +71,14 @@ function submitForm(){
     indexform.submit();
 }
 function submitFormAdd(){
-    indexform.mymethod.value = "add";
-  //  alert(indexform.deleteid.value);
-    indexform.submit();
+    indexform.mymethod.value = "add";  
+    var ss = document.getElementById("lunbotu").options.length;
+    if(ss==0)
+    {
+        alert("没有轮播图可添加！")
+    }
+    else
+        indexform.submit();
 }
         KindEditor.ready(function(K) {
                 K('#create1').click(function() {
@@ -117,7 +125,8 @@ function submitFormAdd(){
                 # code...
                     $options[$value['id']]=$value['fbname'];
                 }
-                echo form_dropdown('lunbotu', $options, 'large');
+                $js = 'id="lunbotu"';
+                echo form_dropdown('lunbotu', $options, 'large',$js);
                 ?>
                 </th>  
             </tr>  

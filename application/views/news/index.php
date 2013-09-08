@@ -109,7 +109,7 @@ function submitForm(){
                     }
                 }
         ?></td>
-	<td><?php echo $news_item['zx_summary'];?></td>
+	<td><?php echo mb_substr($news_item['zx_summary'],0,30);;?></td>
 <!-- 	<td><?php echo $news_item['zx_create'] ?></td> -->
 	<td><?php echo $news_item['zx_from'] ?></td>
 	<td><?php echo anchor_popup('news/show/'.$news_item['id'],'预览'); ?></td>

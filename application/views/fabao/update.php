@@ -290,10 +290,10 @@ $(function()
 	echo form_hidden('news_id',$news_id); 
 ?>
     <input type="hidden" name="sum_picture_id" value="">
-    <input type="hidden" name="sum_picture_fkey" value="">
+    <input type="hidden" name="sum_picture_fkey" value="<?php echo $summary_fkey ?>">
     <input type="hidden" name="sum_picture_fname" value="">
     <input type="hidden" name="con_picture_id" value="">
-    <input type="hidden" name="con_picture_fkey" value="">
+    <input type="hidden" name="con_picture_fkey" value="<?php echo $lb_fkey ?>">
     <input type="hidden" name="con_picture_fname" value="">
     <input type="hidden" name="zx_content_phone" value="">
     <div class="container-fluid">

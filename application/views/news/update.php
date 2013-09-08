@@ -65,6 +65,7 @@ function load()
 {  
   var key1="<?php echo $summary_fkey ?>";
   var key2="<?php echo $content_fkey ?>";
+  countChar("zx_summary","counter");
   if((key1!="") ||(key2!="")){
 
     var postData = {
@@ -277,6 +278,13 @@ $(function()
                     myform.submit();
                 });
         });
+function countChar(textareaName,spanName){
+    document.getElementById(spanName).innerHTML=document.getElementById(textareaName).value.length;
+    if(document.getElementById(textareaName).value.length>=100){
+        window.alert("已经是最大字数了哦！")
+        return false;
+    }
+}
 </script>
 <div id="content"><?php echo validation_errors(); ?>
 
@@ -318,7 +326,7 @@ $(function()
 	    </tr>  
 <tr>  
             <td><label class="control-label" for="input01">摘要</label></td>  
-            <td><textarea class="input-xlarge" name="zx_summary" rows="3"><?php echo $zx_summary ?></textarea></td>  
+            <td><textarea class="input-xlarge" id="zx_summary" name="zx_summary" rows="3" onkeydown='countChar("zx_summary","counter");' onkeyup="countChar('zx_summary','counter')"><?php echo $zx_summary ?></textarea><p>字数:<span id="counter">0</span>个</p></td>        
         </tr>  
         <tr>  
             <td>上传摘要图片</td>  

@@ -329,6 +329,13 @@ class Fabao extends CI_Controller {
 	}
 	public function order()
 	{
+		if ($this->input->post('mymethod') == 'delete') 
+		{
+			# code...
+			$this->fabao_model->delete_order(rtrim($this->input->post('deleteid'), ','));
+		}
+
+
 		$total= $this->db->count_all('hhs_order');
 		$page_config['perpage']=10;   //每页条数
 		$page_config['part']=2;//当前页前后链接数量
@@ -343,7 +350,7 @@ class Fabao extends CI_Controller {
 		$data['news'] = $this->fabao_model->get_order(($offset),$page_config['perpage']);
 		$attributes = array('id' => 'indexform');
 		$hidden = array('deleteid' => '','mymethod'=>'delete');
-		$data['formurl'] = form_open('fabao/index', $attributes,$hidden);
+		$data['formurl'] = form_open('fabao/order', $attributes,$hidden);
 		$data['arrayleft'] = $this->sidebar;
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/menu');
@@ -375,7 +382,7 @@ class Fabao extends CI_Controller {
 		$order_id=$this->input->post('order_id');
 		$this->fabao_model->update_order($order_id);
 		$data['base'] = $this->config->item('base_url');
-		$this->load->view('templates/head', $data); 
+		
 		$data['showmsg']="更新成功";
 		$data['indexurl']=site_url('fabao/index');
 		$data['arrayleft'] = $this->sidebar;

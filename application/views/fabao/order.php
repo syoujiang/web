@@ -87,7 +87,7 @@ function submitForm(){
 <th>用户名</th>
 <th>下单时间</th>
 <th>订单状态</th>
-<th>详情</th>
+<!-- <th>详情</th> -->
 
 
 </tr>
@@ -115,7 +115,6 @@ function submitForm(){
         else
             echo "完成";
         ?></td>
-	<td><?php echo anchor_popup('fabao/order_show/'.$news_item['order_id'],'订单详情'); ?></td>
 	
 	</tr>
 <?php endforeach ?>
